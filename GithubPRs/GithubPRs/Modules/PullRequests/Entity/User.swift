@@ -13,7 +13,7 @@ enum UserType: String, Codable {
 }
 
 struct User: Codable {
-    var avatarUrl: String
+    var avatarUrl: URL
     var login: String
     
     var blog: String?
@@ -38,6 +38,10 @@ struct User: Codable {
     var pinnedRepositories: [Repository]?
     var organizations: [User]?
     var descriptionField: String?
+    
+    func toDomain() -> UserViewModel {
+        return UserViewModel(userName: login, avatarURL: avatarUrl)
+    }
 }
 
    

@@ -38,6 +38,13 @@
 		46DD5D012972DBCF0066140D /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D002972DBCF0066140D /* URLSessionProtocol.swift */; };
 		46DD5D042972DC1A0066140D /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D032972DC1A0066140D /* NetworkingConstants.swift */; };
 		46DD5D062972DC590066140D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D052972DC590066140D /* NetworkError.swift */; };
+		46DD5D092972E9D60066140D /* PullRequestsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D082972E9D60066140D /* PullRequestsInteractor.swift */; };
+		46DD5D0B2972EA450066140D /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D0A2972EA450066140D /* ErrorViewModel.swift */; };
+		46DD5D0D2972EBA50066140D /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D0C2972EBA50066140D /* JsonDecoder.swift */; };
+		46DD5D0F2972EFB60066140D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D0E2972EFB60066140D /* UIColor+Extensions.swift */; };
+		46DD5D122972F3530066140D /* PageNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D112972F3530066140D /* PageNumber.swift */; };
+		46DD5D142972FF430066140D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D132972FF430066140D /* Reachability.swift */; };
+		46DD5D182973069C0066140D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D172973069C0066140D /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +100,13 @@
 		46DD5D002972DBCF0066140D /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		46DD5D032972DC1A0066140D /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
 		46DD5D052972DC590066140D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		46DD5D082972E9D60066140D /* PullRequestsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsInteractor.swift; sourceTree = "<group>"; };
+		46DD5D0A2972EA450066140D /* ErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
+		46DD5D0C2972EBA50066140D /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
+		46DD5D0E2972EFB60066140D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		46DD5D112972F3530066140D /* PageNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNumber.swift; sourceTree = "<group>"; };
+		46DD5D132972FF430066140D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		46DD5D172973069C0066140D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,13 +157,10 @@
 		461C536D297278FF00A67FCA /* GithubPRs */ = {
 			isa = PBXGroup;
 			children = (
-				46DD5D022972DBF10066140D /* Depdencies */,
+				46DD5D15297301210066140D /* App */,
 				46DD5BCE297297360066140D /* Common */,
+				46DD5D022972DBF10066140D /* Depedencies */,
 				46DD5BC7297296D40066140D /* Modules */,
-				461C536E297278FF00A67FCA /* AppDelegate.swift */,
-				461C537A2972790000A67FCA /* Assets.xcassets */,
-				461C537C2972790000A67FCA /* LaunchScreen.storyboard */,
-				461C537F2972790000A67FCA /* Info.plist */,
 				461C5377297278FF00A67FCA /* GithubPRs.xcdatamodeld */,
 			);
 			path = GithubPRs;
@@ -237,8 +248,9 @@
 		46DD5BCE297297360066140D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				46DD5BFF2972C5B90066140D /* API */,
-				46DD5BCF2972973C0066140D /* Wireframes */,
+				46DD5D162973014D0066140D /* API */,
+				46DD5D102972EFBB0066140D /* Extensions */,
+				46DD5D172973069C0066140D /* Utils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -283,6 +295,7 @@
 		46DD5BD3297297CE0066140D /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				46DD5D082972E9D60066140D /* PullRequestsInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -444,14 +457,6 @@
 			path = Submodules;
 			sourceTree = "<group>";
 		};
-		46DD5BFF2972C5B90066140D /* API */ = {
-			isa = PBXGroup;
-			children = (
-				46DD5C042972CDB30066140D /* GHError.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		46DD5C062972CE900066140D /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +465,7 @@
 				46DD5C072972CEB50066140D /* NetworkManager.swift */,
 				46DD5D032972DC1A0066140D /* NetworkingConstants.swift */,
 				46DD5D052972DC590066140D /* NetworkError.swift */,
+				46DD5D132972FF430066140D /* Reachability.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -472,12 +478,12 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		46DD5D022972DBF10066140D /* Depdencies */ = {
+		46DD5D022972DBF10066140D /* Depedencies */ = {
 			isa = PBXGroup;
 			children = (
 				46DD5C062972CE900066140D /* Networking */,
 			);
-			path = Depdencies;
+			path = Depedencies;
 			sourceTree = "<group>";
 		};
 		46DD5D072972DCED0066140D /* Request */ = {
@@ -487,6 +493,37 @@
 				46DD5C002972CB460066140D /* Request.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		46DD5D102972EFBB0066140D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				46DD5D0E2972EFB60066140D /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		46DD5D15297301210066140D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				46DD5BCF2972973C0066140D /* Wireframes */,
+				461C537A2972790000A67FCA /* Assets.xcassets */,
+				461C537C2972790000A67FCA /* LaunchScreen.storyboard */,
+				461C537F2972790000A67FCA /* Info.plist */,
+				461C536E297278FF00A67FCA /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		46DD5D162973014D0066140D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				46DD5C042972CDB30066140D /* GHError.swift */,
+				46DD5D0A2972EA450066140D /* ErrorViewModel.swift */,
+				46DD5D0C2972EBA50066140D /* JsonDecoder.swift */,
+				46DD5D112972F3530066140D /* PageNumber.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -620,14 +657,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				46DD5C082972CEB50066140D /* NetworkManager.swift in Sources */,
+				46DD5D0F2972EFB60066140D /* UIColor+Extensions.swift in Sources */,
 				46DD5BC62972968D0066140D /* PullRequestCommentsWireframe.swift in Sources */,
 				46DD5BC4297296800066140D /* PullRequestCommitsWireframe.swift in Sources */,
 				46DD5BF52972B7FC0066140D /* License.swift in Sources */,
+				46DD5D092972E9D60066140D /* PullRequestsInteractor.swift in Sources */,
 				46DD5BBC29728D6A0066140D /* AppWireframe.swift in Sources */,
 				461C5373297278FF00A67FCA /* PullRequestsController.swift in Sources */,
 				46DD5C032972CB6F0066140D /* URL+Extension.swift in Sources */,
 				46DD5BF12972B7CB0066140D /* Respository.swift in Sources */,
+				46DD5D0B2972EA450066140D /* ErrorViewModel.swift in Sources */,
+				46DD5D122972F3530066140D /* PageNumber.swift in Sources */,
 				46DD5BC22972964F0066140D /* PullRequestDetailWireframe.swift in Sources */,
+				46DD5D0D2972EBA50066140D /* JsonDecoder.swift in Sources */,
 				46DD5BFB2972BDF90066140D /* UserViewModel.swift in Sources */,
 				46DD5BF72972B8380066140D /* PullRequestViewModel.swift in Sources */,
 				46DD5BF32972B7E70066140D /* Milestone.swift in Sources */,
@@ -642,6 +684,8 @@
 				46DD5C012972CB460066140D /* Request.swift in Sources */,
 				46DD5D042972DC1A0066140D /* NetworkingConstants.swift in Sources */,
 				46DD5BC0297292540066140D /* PullRequestsWireframe.swift in Sources */,
+				46DD5D142972FF430066140D /* Reachability.swift in Sources */,
+				46DD5D182973069C0066140D /* Utils.swift in Sources */,
 				46DD5D062972DC590066140D /* NetworkError.swift in Sources */,
 				46DD5BFE2972C0B30066140D /* TagViewModel.swift in Sources */,
 				46DD5C052972CDB30066140D /* GHError.swift in Sources */,
@@ -814,7 +858,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubPRs/Info.plist;
+				INFOPLIST_FILE = GithubPRs/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -841,7 +885,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubPRs/Info.plist;
+				INFOPLIST_FILE = GithubPRs/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

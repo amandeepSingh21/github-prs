@@ -12,7 +12,7 @@ struct PullRequestViewModel {
     let title: String
     let body: String
     let state: PullRequestState
-    let identifer: String
+    let number: String
     let user: UserViewModel
     let reviewCommentsURL: URL
     let commitsURL: URL

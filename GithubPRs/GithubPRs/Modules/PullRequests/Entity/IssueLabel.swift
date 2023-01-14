@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct IssueLabel: Codable {
     var color: String
@@ -15,5 +16,9 @@ struct IssueLabel: Codable {
     var name: String
     var nodeId: String
     var url: String
+    
+    func toDomain() -> TagViewModel {
+        return TagViewModel(title: name, description: descriptionField, color: UIColor(hex: color) ?? .black)
+    }
 }
    
