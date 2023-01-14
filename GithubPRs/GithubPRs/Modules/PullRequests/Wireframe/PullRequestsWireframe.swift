@@ -16,7 +16,6 @@ class PullRequestWireframe: TabBarInterface {
    
     
     // MARK: Public
-    
     init(pullRequestDetailWireframe: PullRequestDetailWireframe) {
         self.pullRequestDetailWireframe = pullRequestDetailWireframe
     }

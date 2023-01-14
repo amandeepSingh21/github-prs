@@ -11,4 +11,3 @@ struct UserViewModel {
     let userName: String
     let avatarURL: URL
 }
-

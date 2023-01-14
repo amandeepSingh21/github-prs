@@ -31,6 +31,13 @@
 		46DD5BF92972BDEA0066140D /* PullRequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BF82972BDEA0066140D /* PullRequestState.swift */; };
 		46DD5BFB2972BDF90066140D /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BFA2972BDF90066140D /* UserViewModel.swift */; };
 		46DD5BFE2972C0B30066140D /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BFD2972C0B30066140D /* TagViewModel.swift */; };
+		46DD5C012972CB460066140D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5C002972CB460066140D /* Request.swift */; };
+		46DD5C032972CB6F0066140D /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5C022972CB6F0066140D /* URL+Extension.swift */; };
+		46DD5C052972CDB30066140D /* GHError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5C042972CDB30066140D /* GHError.swift */; };
+		46DD5C082972CEB50066140D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5C072972CEB50066140D /* NetworkManager.swift */; };
+		46DD5D012972DBCF0066140D /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D002972DBCF0066140D /* URLSessionProtocol.swift */; };
+		46DD5D042972DC1A0066140D /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D032972DC1A0066140D /* NetworkingConstants.swift */; };
+		46DD5D062972DC590066140D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5D052972DC590066140D /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +86,13 @@
 		46DD5BF82972BDEA0066140D /* PullRequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestState.swift; sourceTree = "<group>"; };
 		46DD5BFA2972BDF90066140D /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		46DD5BFD2972C0B30066140D /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
+		46DD5C002972CB460066140D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		46DD5C022972CB6F0066140D /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		46DD5C042972CDB30066140D /* GHError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHError.swift; sourceTree = "<group>"; };
+		46DD5C072972CEB50066140D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		46DD5D002972DBCF0066140D /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		46DD5D032972DC1A0066140D /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
+		46DD5D052972DC590066140D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +143,7 @@
 		461C536D297278FF00A67FCA /* GithubPRs */ = {
 			isa = PBXGroup;
 			children = (
+				46DD5D022972DBF10066140D /* Depdencies */,
 				46DD5BCE297297360066140D /* Common */,
 				46DD5BC7297296D40066140D /* Modules */,
 				461C536E297278FF00A67FCA /* AppDelegate.swift */,
@@ -222,7 +237,7 @@
 		46DD5BCE297297360066140D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				46DD5BED2972B78C0066140D /* Entity */,
+				46DD5BFF2972C5B90066140D /* API */,
 				46DD5BCF2972973C0066140D /* Wireframes */,
 			);
 			path = Common;
@@ -429,11 +444,49 @@
 			path = Submodules;
 			sourceTree = "<group>";
 		};
-		46DD5BED2972B78C0066140D /* Entity */ = {
+		46DD5BFF2972C5B90066140D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				46DD5C042972CDB30066140D /* GHError.swift */,
 			);
-			path = Entity;
+			path = API;
+			sourceTree = "<group>";
+		};
+		46DD5C062972CE900066140D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				46DD5D072972DCED0066140D /* Request */,
+				46DD5CFF2972DBBD0066140D /* Protocols */,
+				46DD5C072972CEB50066140D /* NetworkManager.swift */,
+				46DD5D032972DC1A0066140D /* NetworkingConstants.swift */,
+				46DD5D052972DC590066140D /* NetworkError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		46DD5CFF2972DBBD0066140D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				46DD5D002972DBCF0066140D /* URLSessionProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		46DD5D022972DBF10066140D /* Depdencies */ = {
+			isa = PBXGroup;
+			children = (
+				46DD5C062972CE900066140D /* Networking */,
+			);
+			path = Depdencies;
+			sourceTree = "<group>";
+		};
+		46DD5D072972DCED0066140D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				46DD5C022972CB6F0066140D /* URL+Extension.swift */,
+				46DD5C002972CB460066140D /* Request.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -566,16 +619,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46DD5C082972CEB50066140D /* NetworkManager.swift in Sources */,
 				46DD5BC62972968D0066140D /* PullRequestCommentsWireframe.swift in Sources */,
 				46DD5BC4297296800066140D /* PullRequestCommitsWireframe.swift in Sources */,
 				46DD5BF52972B7FC0066140D /* License.swift in Sources */,
 				46DD5BBC29728D6A0066140D /* AppWireframe.swift in Sources */,
 				461C5373297278FF00A67FCA /* PullRequestsController.swift in Sources */,
+				46DD5C032972CB6F0066140D /* URL+Extension.swift in Sources */,
 				46DD5BF12972B7CB0066140D /* Respository.swift in Sources */,
 				46DD5BC22972964F0066140D /* PullRequestDetailWireframe.swift in Sources */,
 				46DD5BFB2972BDF90066140D /* UserViewModel.swift in Sources */,
 				46DD5BF72972B8380066140D /* PullRequestViewModel.swift in Sources */,
 				46DD5BF32972B7E70066140D /* Milestone.swift in Sources */,
+				46DD5D012972DBCF0066140D /* URLSessionProtocol.swift in Sources */,
 				46DD5BEC2972B7710066140D /* IssueLabel.swift in Sources */,
 				46DD5BF92972BDEA0066140D /* PullRequestState.swift in Sources */,
 				46DD5BEA2972A2530066140D /* PullRequest.swift in Sources */,
@@ -583,8 +639,12 @@
 				46DD5BEF2972B7950066140D /* User.swift in Sources */,
 				461C5379297278FF00A67FCA /* GithubPRs.xcdatamodeld in Sources */,
 				46DD5BBE297290E90066140D /* TabBarWireframe.swift in Sources */,
+				46DD5C012972CB460066140D /* Request.swift in Sources */,
+				46DD5D042972DC1A0066140D /* NetworkingConstants.swift in Sources */,
 				46DD5BC0297292540066140D /* PullRequestsWireframe.swift in Sources */,
+				46DD5D062972DC590066140D /* NetworkError.swift in Sources */,
 				46DD5BFE2972C0B30066140D /* TagViewModel.swift in Sources */,
+				46DD5C052972CDB30066140D /* GHError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
