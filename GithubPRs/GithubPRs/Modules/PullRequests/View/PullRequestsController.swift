@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PullRequestsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
