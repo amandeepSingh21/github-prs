@@ -4,7 +4,7 @@
 
 by [Amandeep](mailto:amandeep.saluja21@gmail.com).
 
-<img src="https://raw.githubusercontent.com/amandeepSingh21/news-app/main/docs/screenshot.png" width="300" height="600">>
+<img src="https://raw.githubusercontent.com/amandeepSingh21/github-prs/main/docs/screenshot.png" width="300" height="600">>
 
 ## 2. Requirements
 - iOS 13.0+
