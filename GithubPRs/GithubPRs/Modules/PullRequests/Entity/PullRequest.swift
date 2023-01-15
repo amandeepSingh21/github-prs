@@ -58,14 +58,14 @@ struct PullRequest: Codable {
     func toDomain() -> PullRequestViewModel {
         let tags = labels.map { $0.toDomain() }
         return PullRequestViewModel(id: id,
-                                     title: title,
-                                     body: body ?? "",
-                                     state: pullRequestState(),
-                                     number: "#\(number)",
-                                     user: user.toDomain(),
-                                     reviewCommentsURL: self.reviewCommentsUrl,
-                                     commitsURL: self.commitsUrl,
-                                     tags: tags)
+                                    title: title,
+                                    body: body ?? "",
+                                    state: pullRequestState(),
+                                    number: "#\(number)",
+                                    user: user.toDomain(),
+                                    reviewCommentsURL: self.reviewCommentsUrl,
+                                    commitsURL: self.commitsUrl,
+                                    tags: tags)
         
     }
     

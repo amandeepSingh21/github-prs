@@ -10,7 +10,7 @@ import SafariServices
 
 protocol PRCommitsWireframeInterface: AnyObject {
     func buildView(_ pullRequest: PullRequestViewModel) -> UIViewController
-    func showCommentsDetailScreen(_ url: URL)
+    func showCommitDetailScreen(_ url: URL)
 }
 
 final class PRCommitsWireframe: PRCommitsWireframeInterface {
@@ -25,7 +25,7 @@ final class PRCommitsWireframe: PRCommitsWireframeInterface {
         return prCommitsController
     }
     
-    func showCommentsDetailScreen(_ url: URL) {
+    func showCommitDetailScreen(_ url: URL) {
         guard let controller = self.prCommitsController else { return }
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true

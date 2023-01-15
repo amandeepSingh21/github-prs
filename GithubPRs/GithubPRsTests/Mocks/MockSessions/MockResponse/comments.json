@@ -1,0 +1,204 @@
+[
+  {
+    "url": "https://api.github.com/repos/apple/swift/pulls/comments/1069605902",
+    "pull_request_review_id": 1247856903,
+    "id": 1069605902,
+    "node_id": "PRRC_kwDOAqwwJc4_wOQO",
+    "diff_hunk": "@@ -234,7 +193,7 @@ void NullaryContinuationJob::process(Job *_job) {\n   auto *task = job->Task;\n   auto *continuation = job->Continuation;\n \n-  _swift_task_dealloc_specific(task, job);\n+  free(job);",
+    "path": "stdlib/public/Concurrency/Task.cpp",
+    "position": 55,
+    "original_position": 55,
+    "commit_id": "97358ad68a84744b02c1b31bd3e26c87d2ec44e0",
+    "original_commit_id": "ac60f6a66b2fd78e86f347373fd53fa02f09b9bc",
+    "user": {
+      "login": "rokhinip",
+      "id": 1229980,
+      "node_id": "MDQ6VXNlcjEyMjk5ODA=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1229980?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rokhinip",
+      "html_url": "https://github.com/rokhinip",
+      "followers_url": "https://api.github.com/users/rokhinip/followers",
+      "following_url": "https://api.github.com/users/rokhinip/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rokhinip/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rokhinip/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rokhinip/subscriptions",
+      "organizations_url": "https://api.github.com/users/rokhinip/orgs",
+      "repos_url": "https://api.github.com/users/rokhinip/repos",
+      "events_url": "https://api.github.com/users/rokhinip/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rokhinip/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "body": "This allocation from the task's async stack was messing with the assumption we had that the dependency record is always the last thing on the task's async stack if the task is suspended. This is due to when and how this is allocated and then enqueued in the continuation block.\r\n\r\nGiven that this is used for `Task.yield/Task.sleep` which I expect to be used more rarely, it seemed fine to switch this to using malloc instead. Let me know if anyone feels otherwise.",
+    "created_at": "2023-01-13T15:40:02Z",
+    "updated_at": "2023-01-14T16:01:41Z",
+    "html_url": "https://github.com/apple/swift/pull/63019#discussion_r1069605902",
+    "pull_request_url": "https://api.github.com/repos/apple/swift/pulls/63019",
+    "author_association": "CONTRIBUTOR",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/apple/swift/pulls/comments/1069605902"
+      },
+      "html": {
+        "href": "https://github.com/apple/swift/pull/63019#discussion_r1069605902"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/apple/swift/pulls/63019"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/apple/swift/pulls/comments/1069605902/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": 196,
+    "original_line": 196,
+    "side": "RIGHT"
+  },
+  {
+    "url": "https://api.github.com/repos/apple/swift/pulls/comments/1069608727",
+    "pull_request_review_id": 1247863504,
+    "id": 1069608727,
+    "node_id": "PRRC_kwDOAqwwJc4_wO8X",
+    "diff_hunk": "@@ -234,7 +193,7 @@ void NullaryContinuationJob::process(Job *_job) {\n   auto *task = job->Task;\n   auto *continuation = job->Continuation;\n \n-  _swift_task_dealloc_specific(task, job);\n+  free(job);",
+    "path": "stdlib/public/Concurrency/Task.cpp",
+    "position": 55,
+    "original_position": 55,
+    "commit_id": "97358ad68a84744b02c1b31bd3e26c87d2ec44e0",
+    "original_commit_id": "ac60f6a66b2fd78e86f347373fd53fa02f09b9bc",
+    "user": {
+      "login": "rokhinip",
+      "id": 1229980,
+      "node_id": "MDQ6VXNlcjEyMjk5ODA=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1229980?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rokhinip",
+      "html_url": "https://github.com/rokhinip",
+      "followers_url": "https://api.github.com/users/rokhinip/followers",
+      "following_url": "https://api.github.com/users/rokhinip/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rokhinip/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rokhinip/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rokhinip/subscriptions",
+      "organizations_url": "https://api.github.com/users/rokhinip/orgs",
+      "repos_url": "https://api.github.com/users/rokhinip/repos",
+      "events_url": "https://api.github.com/users/rokhinip/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rokhinip/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "body": "cc: @drexin ",
+    "created_at": "2023-01-13T15:42:28Z",
+    "updated_at": "2023-01-13T15:42:28Z",
+    "html_url": "https://github.com/apple/swift/pull/63019#discussion_r1069608727",
+    "pull_request_url": "https://api.github.com/repos/apple/swift/pulls/63019",
+    "author_association": "CONTRIBUTOR",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/apple/swift/pulls/comments/1069608727"
+      },
+      "html": {
+        "href": "https://github.com/apple/swift/pull/63019#discussion_r1069608727"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/apple/swift/pulls/63019"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/apple/swift/pulls/comments/1069608727/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": 196,
+    "original_line": 196,
+    "side": "RIGHT",
+    "in_reply_to_id": 1069605902
+  },
+  {
+    "url": "https://api.github.com/repos/apple/swift/pulls/comments/1069610011",
+    "pull_request_review_id": 1247866240,
+    "id": 1069610011,
+    "node_id": "PRRC_kwDOAqwwJc4_wPQb",
+    "diff_hunk": "@@ -113,6 +115,61 @@ _swift_task_getDispatchQueueSerialExecutorWitnessTable() {\n }\n #endif\n \n+/*************** Methods for Status records manipulation ******************/\n+\n+/// Remove the top status record from input task. This may be called\n+/// asynchronously from the current task.  After this call returns, the record's\n+/// memory can be freely modified or deallocated.\n+///\n+/// This must be called synchronously with the task.  The record must",
+    "path": "stdlib/public/Concurrency/TaskPrivate.h",
+    "position": 26,
+    "original_position": 26,
+    "commit_id": "97358ad68a84744b02c1b31bd3e26c87d2ec44e0",
+    "original_commit_id": "ac60f6a66b2fd78e86f347373fd53fa02f09b9bc",
+    "user": {
+      "login": "rokhinip",
+      "id": 1229980,
+      "node_id": "MDQ6VXNlcjEyMjk5ODA=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1229980?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rokhinip",
+      "html_url": "https://github.com/rokhinip",
+      "followers_url": "https://api.github.com/users/rokhinip/followers",
+      "following_url": "https://api.github.com/users/rokhinip/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rokhinip/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rokhinip/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rokhinip/subscriptions",
+      "organizations_url": "https://api.github.com/users/rokhinip/orgs",
+      "repos_url": "https://api.github.com/users/rokhinip/repos",
+      "events_url": "https://api.github.com/users/rokhinip/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rokhinip/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "body": "Whoops - I seem to have contradicted myself on whether this is asynchronous or synchronous from current task. Will fix.",
+    "created_at": "2023-01-13T15:43:35Z",
+    "updated_at": "2023-01-13T15:43:35Z",
+    "html_url": "https://github.com/apple/swift/pull/63019#discussion_r1069610011",
+    "pull_request_url": "https://api.github.com/repos/apple/swift/pulls/63019",
+    "author_association": "CONTRIBUTOR",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/apple/swift/pulls/comments/1069610011"
+      },
+      "html": {
+        "href": "https://github.com/apple/swift/pull/63019#discussion_r1069610011"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/apple/swift/pulls/63019"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/apple/swift/pulls/comments/1069610011/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": 124,
+    "original_line": 124,
+    "side": "RIGHT"
+  }
+]

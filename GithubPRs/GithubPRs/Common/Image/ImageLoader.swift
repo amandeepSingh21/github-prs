@@ -10,7 +10,13 @@ import UIKit
 
 class ImageLoader {
   private var loadedImages = [URL: UIImage]()
-  private var runningRequests = [UUID: URLSessionDataTask]()
+  private var runningRequests = [UUID: URLSessionDataTaskProtocol]()
+    
+private let session: URLSessionProtocol
+    // MARK: - Initialiser
+    init(session: URLSessionProtocol = URLSession.shared) {
+        self.session = session
+    }
     
     func loadImage(_ url: URL, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
 
@@ -21,7 +27,7 @@ class ImageLoader {
 
       let uuid = UUID()
 
-      let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = self.session.dataTask(with: URLRequest(url: url)) { data, response, error in
         defer {self.runningRequests.removeValue(forKey: uuid) }
 
         if let data = data, let image = UIImage(data: data) {

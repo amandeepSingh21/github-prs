@@ -1,0 +1,81 @@
+[
+  {
+    "sha": "6cb91cbe0148a46a663408ff8b0be48f276ad09a",
+    "node_id": "C_kwDODKXv2NoAKDZjYjkxY2JlMDE0OGE0NmE2NjM0MDhmZjhiMGJlNDhmMjc2YWQwOWE",
+    "commit": {
+      "author": {
+        "name": "Eric Miotto",
+        "email": "1094986+edymtt@users.noreply.github.com",
+        "date": "2023-01-12T17:39:38Z"
+      },
+      "committer": {
+        "name": "Eric Miotto",
+        "email": "1094986+edymtt@users.noreply.github.com",
+        "date": "2023-01-13T21:22:05Z"
+      },
+      "message": "[5.8] Build-script: ensure we can target armv7k with watchOS 9 SDK\n\nUpdating to match `SDKSettings.plist`\n\nAddresses rdar://100563701\n\n(cherry picked from commit 9bde0077defadc30d496c09b95322652ad87f77a)",
+      "tree": {
+        "sha": "0704c21bd4f546649ede0960b481561426dde3e4",
+        "url": "https://api.github.com/repos/apple/swift/git/trees/0704c21bd4f546649ede0960b481561426dde3e4"
+      },
+      "url": "https://api.github.com/repos/apple/swift/git/commits/6cb91cbe0148a46a663408ff8b0be48f276ad09a",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/apple/swift/commits/6cb91cbe0148a46a663408ff8b0be48f276ad09a",
+    "html_url": "https://github.com/apple/swift/commit/6cb91cbe0148a46a663408ff8b0be48f276ad09a",
+    "comments_url": "https://api.github.com/repos/apple/swift/commits/6cb91cbe0148a46a663408ff8b0be48f276ad09a/comments",
+    "author": {
+      "login": "edymtt",
+      "id": 1094986,
+      "node_id": "MDQ6VXNlcjEwOTQ5ODY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1094986?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/edymtt",
+      "html_url": "https://github.com/edymtt",
+      "followers_url": "https://api.github.com/users/edymtt/followers",
+      "following_url": "https://api.github.com/users/edymtt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/edymtt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/edymtt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/edymtt/subscriptions",
+      "organizations_url": "https://api.github.com/users/edymtt/orgs",
+      "repos_url": "https://api.github.com/users/edymtt/repos",
+      "events_url": "https://api.github.com/users/edymtt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/edymtt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "edymtt",
+      "id": 1094986,
+      "node_id": "MDQ6VXNlcjEwOTQ5ODY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1094986?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/edymtt",
+      "html_url": "https://github.com/edymtt",
+      "followers_url": "https://api.github.com/users/edymtt/followers",
+      "following_url": "https://api.github.com/users/edymtt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/edymtt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/edymtt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/edymtt/subscriptions",
+      "organizations_url": "https://api.github.com/users/edymtt/orgs",
+      "repos_url": "https://api.github.com/users/edymtt/repos",
+      "events_url": "https://api.github.com/users/edymtt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/edymtt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "22d44149234065622170543e867bfe523063f5a6",
+        "url": "https://api.github.com/repos/apple/swift/commits/22d44149234065622170543e867bfe523063f5a6",
+        "html_url": "https://github.com/apple/swift/commit/22d44149234065622170543e867bfe523063f5a6"
+      }
+    ]
+  }
+]

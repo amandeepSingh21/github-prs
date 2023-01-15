@@ -27,9 +27,9 @@ protocol PullRequestPresenterProtocol {
 
 final class PullRequestPresenter: PullRequestPresenterProtocol {        
     //MARK: State
-    private var organisationName: String = "apple"
-    private let screenType: PullRequestScreenType
-    private var repoName: String = "swift"
+    var organisationName: String = "apple"
+    let screenType: PullRequestScreenType
+    var repoName: String = "swift"
     private(set) var pullRequests: [PullRequestViewModel] = []
     var page: Int { self.paginator?.page ?? 0 }
     
@@ -46,11 +46,11 @@ final class PullRequestPresenter: PullRequestPresenterProtocol {
         didSet { self.pullRequests = [] }
     }
     
-    private let wireframe: PullRequestWireframe
-    private let interactor: PullRequestInteractor
+    private let wireframe: PRWireframeInterface
+    private let interactor: PullRequestInteractorProtocol
 
     //MARK: Init
-    init(wireframe: PullRequestWireframe, interactor: PullRequestInteractor, screenType: PullRequestScreenType) {
+    init(wireframe: PRWireframeInterface, interactor: PullRequestInteractorProtocol, screenType: PullRequestScreenType) {
         self.wireframe = wireframe
         self.screenType = screenType
         self.interactor = interactor

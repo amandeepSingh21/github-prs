@@ -39,11 +39,11 @@ final class PRCommitsPresenter: PRCommitsPresenterProtocol {
         didSet { self.commits = [] }
     }
     
-    private let wireframe: PRCommitsWireframe
+    private let wireframe: PRCommitsWireframeInterface
     private let interactor: PRCommitsInteractorProtocol
 
     //MARK: Init
-    init(wireframe: PRCommitsWireframe,
+    init(wireframe: PRCommitsWireframeInterface,
          interactor: PRCommitsInteractorProtocol,
          pullRequest: PullRequestViewModel
     ) {
@@ -101,7 +101,7 @@ extension PRCommitsPresenter: PaginationDelegate {
 //MARK: Navigation
 extension PRCommitsPresenter {
     func didSelect(commit: PRCommitViewModel) {
-        self.wireframe.showCommentsDetailScreen(commit.htmlURL)
+        self.wireframe.showCommitDetailScreen(commit.htmlURL)
     }
 }
 

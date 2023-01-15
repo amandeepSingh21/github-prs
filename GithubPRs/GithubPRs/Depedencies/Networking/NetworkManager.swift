@@ -5,6 +5,12 @@
 //  Created by Amandeep on 14/01/23.
 //
 
+//Mock: Error
+//Mock: Data, 200
+//Mock: Data, non 200
+//Mock: No Data, non 200
+//Mock: Data, non 200 rate limit
+
 import Foundation
 import Network
 

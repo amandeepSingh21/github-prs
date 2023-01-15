@@ -9,8 +9,11 @@ import Foundation
 
 struct ErrorViewModel: Error {
     let message: String
+    let networkError: NetworkError?
     
-    init(_ message: String) {
+    init(_ message: String, networkError: NetworkError? = nil) {
         self.message = message
+        self.networkError = networkError
     }
 }
+

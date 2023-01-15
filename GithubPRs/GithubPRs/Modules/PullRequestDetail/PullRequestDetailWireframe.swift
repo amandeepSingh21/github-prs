@@ -10,21 +10,21 @@ import UIKit
 
 protocol PRDetailWireframeInterface: AnyObject {
     func showDetailScreen(for viewModel: PullRequestViewModel, in navigationController: UINavigationController)
-    init(commitsWireframe: PRCommitsWireframe,
-         commentsWirefram: PRCommentsWireframe,
+    init(commitsWireframe: PRCommitsWireframeInterface,
+         commentsWirefram: PRCommentsWireframeInterface,
          screenTypes: [ScreenType],
          title: String)
 }
 
 final class PullRequestDetailWireframe: PRDetailWireframeInterface {
-    private let commitsWireframe: PRCommitsWireframe
-    private let commentsWirefram: PRCommentsWireframe
+    private let commitsWireframe: PRCommitsWireframeInterface
+    private let commentsWirefram: PRCommentsWireframeInterface
     private let title: String
     private let screenTypes: [ScreenType]
 
     // MARK: - Public
-    init(commitsWireframe: PRCommitsWireframe,
-         commentsWirefram: PRCommentsWireframe,
+    init(commitsWireframe: PRCommitsWireframeInterface,
+         commentsWirefram: PRCommentsWireframeInterface,
          screenTypes: [ScreenType],
          title: String) {
         self.commitsWireframe = commitsWireframe

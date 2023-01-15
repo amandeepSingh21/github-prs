@@ -48,19 +48,19 @@ class PRCommentsInteractor: PRCommentsInteractorProtocol {
     }
    
     //MARK: Private
-    private func handleFailure(_ error: NetworkError, completion: @escaping PRCommentAPIResult) {
-        if let data = error.apiError {
+    private func handleFailure(_ networkError: NetworkError, completion: @escaping PRCommentAPIResult) {
+        if let data = networkError.apiError {
             do {
                 let error = try decoder.decode(GHError.self, from: data)
-                completion(.failure(ErrorViewModel(error.message)))
+                completion(.failure(ErrorViewModel(error.message, networkError: networkError)))
             } catch {
-                completion(.failure(ErrorViewModel("Something went wrong!")))
+                completion(.failure(ErrorViewModel("Something went wrong!", networkError: networkError)))
             }
         } else {
-            if let message  = error.urlSessionError.underlyingError?.localizedDescription {
-                completion(.failure(.init(message)))
+            if let message  = networkError.urlSessionError.underlyingError?.localizedDescription {
+                completion(.failure(.init(message, networkError: networkError)))
             } else {
-                completion(.failure(.init(error.urlSessionError.message)))
+                completion(.failure(.init(networkError.urlSessionError.message, networkError: networkError)))
             }
             
         }

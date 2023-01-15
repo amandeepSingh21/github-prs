@@ -41,11 +41,11 @@ class PRCommentsPresenter: PRCommentsPresenterProtocol {
         didSet { self.comments = [] }
     }
     
-    private let wireframe: PRCommentsWireframe
+    private let wireframe: PRCommentsWireframeInterface
     private let interactor: PRCommentsInteractorProtocol
 
     //MARK: Init
-    init(wireframe: PRCommentsWireframe,
+    init(wireframe: PRCommentsWireframeInterface,
          interactor: PRCommentsInteractorProtocol,
          pullRequest: PullRequestViewModel
     ) {
