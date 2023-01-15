@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 protocol PullRequestPresenterProtocol {
     ///Following are the 4 operations available on presenter:
     func load(organisation: String, repo: String) ///To load with a new search query
@@ -91,9 +89,9 @@ extension PullRequestPresenter: PaginationDelegate {
                                          page: .init(page: pageNumber))
         self.interactor.load(apiRequest) { [weak self] result in
             switch result {
-            case .success(let articles):
-                self?.handleSuccess(articles)
-                onSuccess?(articles)
+            case .success(let prs):
+                self?.handleSuccess(prs)
+                onSuccess?(prs)
             case .failure(let error):
                 self?.handleError(error)
                 onError?(error)
@@ -111,6 +109,7 @@ extension PullRequestPresenter: PaginationDelegate {
 //MARK: Navigation
 extension PullRequestPresenter {
     func didSelect(pullRequest: PullRequestViewModel) {
+        self.wireframe.showPullRequestDetailScreen(pullRequest)
     }
 }
 

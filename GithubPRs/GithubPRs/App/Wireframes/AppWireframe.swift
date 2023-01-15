@@ -20,8 +20,11 @@ class AppWireframe {
     init(window: UIWindow) {
         self.window = window
         let prCommitsWireframe = PullRequestCommitsWireframe()
-        let prCommentsWireframe = PullRequestCommentsWireframe()
-        let pullRequestDetailWireframe = PullRequestDetailWireframe(commitsWireframe: prCommitsWireframe, commentsWireframe: prCommentsWireframe)
+        let prCommentsWireframe = PRCommentsWireframe()
+        let pullRequestDetailWireframe = PullRequestDetailWireframe(commitsWireframe: prCommitsWireframe,
+                                                                    commentsWirefram: prCommentsWireframe,
+                                                                    screenTypes: [PullRequestDetailScreenType.comments, PullRequestDetailScreenType.commits],
+                                                                    title: "PR Details")
        
         let openPRWireframe: SegmentedControlInterface = PullRequestWireframe(pullRequestDetailWireframe: pullRequestDetailWireframe, screenType: .open)
         let closedPRWireframe: SegmentedControlInterface = PullRequestWireframe(pullRequestDetailWireframe: pullRequestDetailWireframe, screenType: .closed)

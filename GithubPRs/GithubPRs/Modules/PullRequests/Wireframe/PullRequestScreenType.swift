@@ -9,7 +9,6 @@ import Foundation
 
 protocol ScreenType {
     var displayValue: String { get }
-    var apiValue: String { get }
 }
 
 enum PullRequestScreenType: CaseIterable, ScreenType {

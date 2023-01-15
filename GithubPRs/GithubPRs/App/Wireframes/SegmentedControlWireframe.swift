@@ -28,10 +28,8 @@ class SegmentedControlWireframe: TabBarInterface {
     func configuredViewController() -> UIViewController {
         let segmentedViewController = SegmentedViewController(screenTypes: screenTypes, title: title)
         segmentedViewController.viewControllers = wireFrames.map({ $0.configuredViewController() })
-      
         let vc = UINavigationController(rootViewController: segmentedViewController)
         segmentedViewController.navigationController?.navigationBar.prefersLargeTitles = true
-        segmentedViewController.tabBarController?.tabBar.isHidden = true
         return vc
     }
     

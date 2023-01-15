@@ -1,26 +1,26 @@
 //
-//  ViewController.swift
+//  PRCommentsController.swift
 //  GithubPRs
 //
-//  Created by Amandeep on 14/01/23.
+//  Created by Amandeep on 15/01/23.
 //
 
-import UIKit
+import Foundation
 
-class PullRequestsController: NiblessViewController {
+class PRCommentsController: NiblessViewController {
     
     //MARK: - Child View Controller
     let messageController: MessageController
     
     //MARK: - Properties
-    var rootView: PullRequestView
-    let presenter: PullRequestPresenterProtocol
+    var rootView: PRCommentsView
+    let presenter: PRCommentsPresenterProtocol
     
     //MARK: - Methods
-    init(presenter: PullRequestPresenterProtocol) {
+    init(presenter: PRCommentsPresenterProtocol) {
         self.presenter = presenter
         self.messageController = MessageController(message: presenter.viewState.value.message)
-        rootView = PullRequestView(presenter: self.presenter, frame: .zero)
+        rootView = PRCommentsView(presenter: self.presenter, frame: .zero)
         super.init()
     }
     
@@ -34,7 +34,7 @@ class PullRequestsController: NiblessViewController {
         setUpBindings()
         navigationController?.navigationBar.prefersLargeTitles = true
         self.tabBarController?.tabBar.isHidden = true
-        self.presenter.load(organisation: "apple", repo: "swift")
+        self.presenter.load()
         
     }
     

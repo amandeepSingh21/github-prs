@@ -8,17 +8,15 @@
 import Foundation
 import UIKit
 
-
-
 final class PullRequestWireframe: SegmentedControlInterface {
     
     private(set) weak var pullRequestsController: UIViewController?
     private  let screenType: PullRequestScreenType
-    private  let pullRequestDetailWireframe: PullRequestDetailWireframe
+    private  let pullRequestDetailWireframe: PullRequestDetailWireframeInterface
  
    
     // MARK: Public
-    init(pullRequestDetailWireframe: PullRequestDetailWireframe,
+    init(pullRequestDetailWireframe: PullRequestDetailWireframeInterface,
          screenType: PullRequestScreenType) {
         self.pullRequestDetailWireframe = pullRequestDetailWireframe
         self.screenType = screenType
@@ -32,11 +30,13 @@ final class PullRequestWireframe: SegmentedControlInterface {
         return pullRequestsController
     }
     
-    func showPullRequestDetailScreen() {
-        guard let controller = self.pullRequestsController, let parent = controller.parent else {
-            return
-        }
-       // container.showPullRequestDetailScreen()
+    func showPullRequestDetailScreen(_ pr: PullRequestViewModel) {
+        guard let controller = self.pullRequestsController,
+              let parent = controller.parent,
+              let nav = parent.navigationController
+        else { return }
+        
+        self.pullRequestDetailWireframe.showDetailScreen(for: pr, in: nav)
     }
     
     // MARK: - Private

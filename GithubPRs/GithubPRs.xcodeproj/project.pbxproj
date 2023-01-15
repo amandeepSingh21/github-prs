@@ -20,7 +20,7 @@
 		46DD5BC0297292540066140D /* PullRequestsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BBF297292540066140D /* PullRequestsWireframe.swift */; };
 		46DD5BC22972964F0066140D /* PullRequestDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BC12972964F0066140D /* PullRequestDetailWireframe.swift */; };
 		46DD5BC4297296800066140D /* PullRequestCommitsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BC3297296800066140D /* PullRequestCommitsWireframe.swift */; };
-		46DD5BC62972968D0066140D /* PullRequestCommentsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BC52972968D0066140D /* PullRequestCommentsWireframe.swift */; };
+		46DD5BC62972968D0066140D /* PRCommentsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BC52972968D0066140D /* PRCommentsWireframe.swift */; };
 		46DD5BEA2972A2530066140D /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BE92972A2530066140D /* PullRequest.swift */; };
 		46DD5BEC2972B7710066140D /* IssueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BEB2972B7710066140D /* IssueLabel.swift */; };
 		46DD5BEF2972B7950066140D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD5BEE2972B7940066140D /* User.swift */; };
@@ -62,9 +62,16 @@
 		46DED6902973188D00406D2B /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED68F2973188D00406D2B /* MessageController.swift */; };
 		46DED692297318A900406D2B /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED691297318A900406D2B /* MessageView.swift */; };
 		46DED6942973399E00406D2B /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6932973399E00406D2B /* SegmentedViewController.swift */; };
-		46DED6962973C3F200406D2B /* PullRequestsContainerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6952973C3F200406D2B /* PullRequestsContainerWireframe.swift */; };
 		46DED6982973C7E800406D2B /* PullRequestScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6972973C7E800406D2B /* PullRequestScreenType.swift */; };
 		46DED69B2973E1A400406D2B /* SegmentedControlWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED69A2973E1A400406D2B /* SegmentedControlWireframe.swift */; };
+		46DED69D2973F94F00406D2B /* PRCommentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED69C2973F94F00406D2B /* PRCommentsInteractor.swift */; };
+		46DED69F2973F96200406D2B /* PRCommentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED69E2973F96200406D2B /* PRCommentsPresenter.swift */; };
+		46DED6A12973F99200406D2B /* PRCommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6A02973F99200406D2B /* PRCommentsController.swift */; };
+		46DED6A32973F9A800406D2B /* PRCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6A22973F9A800406D2B /* PRCommentsView.swift */; };
+		46DED6A5297402D100406D2B /* PRComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6A4297402D100406D2B /* PRComment.swift */; };
+		46DED6A82974047A00406D2B /* PRCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6A72974047A00406D2B /* PRCommentViewModel.swift */; };
+		46DED6AA297408AA00406D2B /* PRCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6A9297408AA00406D2B /* PRCommentCell.swift */; };
+		46DED6AC297409B400406D2B /* PullRequestDetailScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6AB297409B400406D2B /* PullRequestDetailScreenType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +109,7 @@
 		46DD5BBF297292540066140D /* PullRequestsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsWireframe.swift; sourceTree = "<group>"; };
 		46DD5BC12972964F0066140D /* PullRequestDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDetailWireframe.swift; sourceTree = "<group>"; };
 		46DD5BC3297296800066140D /* PullRequestCommitsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCommitsWireframe.swift; sourceTree = "<group>"; };
-		46DD5BC52972968D0066140D /* PullRequestCommentsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCommentsWireframe.swift; sourceTree = "<group>"; };
+		46DD5BC52972968D0066140D /* PRCommentsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRCommentsWireframe.swift; sourceTree = "<group>"; };
 		46DD5BE92972A2530066140D /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
 		46DD5BEB2972B7710066140D /* IssueLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueLabel.swift; sourceTree = "<group>"; };
 		46DD5BEE2972B7940066140D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -144,9 +151,16 @@
 		46DED68F2973188D00406D2B /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		46DED691297318A900406D2B /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		46DED6932973399E00406D2B /* SegmentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
-		46DED6952973C3F200406D2B /* PullRequestsContainerWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsContainerWireframe.swift; sourceTree = "<group>"; };
 		46DED6972973C7E800406D2B /* PullRequestScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestScreenType.swift; sourceTree = "<group>"; };
 		46DED69A2973E1A400406D2B /* SegmentedControlWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlWireframe.swift; sourceTree = "<group>"; };
+		46DED69C2973F94F00406D2B /* PRCommentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRCommentsInteractor.swift; sourceTree = "<group>"; };
+		46DED69E2973F96200406D2B /* PRCommentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRCommentsPresenter.swift; sourceTree = "<group>"; };
+		46DED6A02973F99200406D2B /* PRCommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRCommentsController.swift; sourceTree = "<group>"; };
+		46DED6A22973F9A800406D2B /* PRCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRCommentsView.swift; sourceTree = "<group>"; };
+		46DED6A4297402D100406D2B /* PRComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRComment.swift; sourceTree = "<group>"; };
+		46DED6A72974047A00406D2B /* PRCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRCommentViewModel.swift; sourceTree = "<group>"; };
+		46DED6A9297408AA00406D2B /* PRCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRCommentCell.swift; sourceTree = "<group>"; };
+		46DED6AB297409B400406D2B /* PullRequestDetailScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDetailScreenType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +276,7 @@
 		46DD5BCC297297180066140D /* PullRequestComments */ = {
 			isa = PBXGroup;
 			children = (
+				46DED6A62974046A00406D2B /* New Group */,
 				46DD5BD92972988A0066140D /* View */,
 				46DD5BDB297298A40066140D /* Interactor */,
 				46DD5BDA297298910066140D /* Presenter */,
@@ -351,7 +366,6 @@
 			isa = PBXGroup;
 			children = (
 				46DD5BBF297292540066140D /* PullRequestsWireframe.swift */,
-				46DED6952973C3F200406D2B /* PullRequestsContainerWireframe.swift */,
 				46DED6972973C7E800406D2B /* PullRequestScreenType.swift */,
 			);
 			path = Wireframe;
@@ -371,7 +385,8 @@
 		46DD5BD6297298760066140D /* Wireframe */ = {
 			isa = PBXGroup;
 			children = (
-				46DD5BC52972968D0066140D /* PullRequestCommentsWireframe.swift */,
+				46DD5BC52972968D0066140D /* PRCommentsWireframe.swift */,
+				46DED6AB297409B400406D2B /* PullRequestDetailScreenType.swift */,
 			);
 			path = Wireframe;
 			sourceTree = "<group>";
@@ -379,6 +394,7 @@
 		46DD5BD72972987D0066140D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				46DED6A72974047A00406D2B /* PRCommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -386,6 +402,7 @@
 		46DD5BD8297298840066140D /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				46DED6A4297402D100406D2B /* PRComment.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -393,6 +410,9 @@
 		46DD5BD92972988A0066140D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				46DED6A02973F99200406D2B /* PRCommentsController.swift */,
+				46DED6A22973F9A800406D2B /* PRCommentsView.swift */,
+				46DED6A9297408AA00406D2B /* PRCommentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -400,6 +420,7 @@
 		46DD5BDA297298910066140D /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				46DED69E2973F96200406D2B /* PRCommentsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -407,6 +428,7 @@
 		46DD5BDB297298A40066140D /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				46DED69C2973F94F00406D2B /* PRCommentsInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -602,6 +624,13 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		46DED6A62974046A00406D2B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -734,11 +763,13 @@
 			files = (
 				46DD5C082972CEB50066140D /* NetworkManager.swift in Sources */,
 				46DD5D0F2972EFB60066140D /* UIColor+Extensions.swift in Sources */,
-				46DD5BC62972968D0066140D /* PullRequestCommentsWireframe.swift in Sources */,
+				46DD5BC62972968D0066140D /* PRCommentsWireframe.swift in Sources */,
 				46DD5BC4297296800066140D /* PullRequestCommitsWireframe.swift in Sources */,
 				46DD5BF52972B7FC0066140D /* License.swift in Sources */,
 				46DD5D092972E9D60066140D /* PullRequestsInteractor.swift in Sources */,
 				46DED67029730E7400406D2B /* UIView+Extensions.swift in Sources */,
+				46DED6A12973F99200406D2B /* PRCommentsController.swift in Sources */,
+				46DED69D2973F94F00406D2B /* PRCommentsInteractor.swift in Sources */,
 				46DED68E297316D400406D2B /* Paginator.swift in Sources */,
 				46DD5BBC29728D6A0066140D /* AppWireframe.swift in Sources */,
 				461C5373297278FF00A67FCA /* PullRequestsController.swift in Sources */,
@@ -749,6 +780,7 @@
 				46DED68C2973145B00406D2B /* PullRequestViewState.swift in Sources */,
 				46DD5D0B2972EA450066140D /* ErrorViewModel.swift in Sources */,
 				46DD5D122972F3530066140D /* PageNumber.swift in Sources */,
+				46DED6AA297408AA00406D2B /* PRCommentCell.swift in Sources */,
 				46DD5BC22972964F0066140D /* PullRequestDetailWireframe.swift in Sources */,
 				46DD5D0D2972EBA50066140D /* JsonDecoder.swift in Sources */,
 				46DD5BFB2972BDF90066140D /* UserViewModel.swift in Sources */,
@@ -759,9 +791,9 @@
 				46DD5D012972DBCF0066140D /* URLSessionProtocol.swift in Sources */,
 				46DED67629730EC400406D2B /* NiblessView.swift in Sources */,
 				46DD5BEC2972B7710066140D /* IssueLabel.swift in Sources */,
+				46DED6A5297402D100406D2B /* PRComment.swift in Sources */,
 				46DED67E29730FA800406D2B /* PullRequestPresenter.swift in Sources */,
 				46DD5BF92972BDEA0066140D /* PullRequestState.swift in Sources */,
-				46DED6962973C3F200406D2B /* PullRequestsContainerWireframe.swift in Sources */,
 				46DD5BEA2972A2530066140D /* PullRequest.swift in Sources */,
 				46DED6862973116C00406D2B /* ImageLoader.swift in Sources */,
 				461C536F297278FF00A67FCA /* AppDelegate.swift in Sources */,
@@ -774,12 +806,16 @@
 				46DD5D042972DC1A0066140D /* NetworkingConstants.swift in Sources */,
 				46DD5BC0297292540066140D /* PullRequestsWireframe.swift in Sources */,
 				46DD5D142972FF430066140D /* Reachability.swift in Sources */,
+				46DED6AC297409B400406D2B /* PullRequestDetailScreenType.swift in Sources */,
+				46DED6A82974047A00406D2B /* PRCommentViewModel.swift in Sources */,
 				46DED6982973C7E800406D2B /* PullRequestScreenType.swift in Sources */,
 				46DED6902973188D00406D2B /* MessageController.swift in Sources */,
+				46DED69F2973F96200406D2B /* PRCommentsPresenter.swift in Sources */,
 				46DED69B2973E1A400406D2B /* SegmentedControlWireframe.swift in Sources */,
 				46DD5D182973069C0066140D /* Utils.swift in Sources */,
 				46DED6882973117300406D2B /* UIImageLoader.swift in Sources */,
 				46DED6942973399E00406D2B /* SegmentedViewController.swift in Sources */,
+				46DED6A32973F9A800406D2B /* PRCommentsView.swift in Sources */,
 				46DED67A29730EEC00406D2B /* ViewControllerContainment.swift in Sources */,
 				46DD5D062972DC590066140D /* NetworkError.swift in Sources */,
 				46DD5BFE2972C0B30066140D /* TagViewModel.swift in Sources */,
