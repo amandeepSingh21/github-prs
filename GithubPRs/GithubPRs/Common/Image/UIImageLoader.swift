@@ -52,4 +52,12 @@ extension UIImageView {
   func cancelImageLoad() {
     UIImageLoader.loader.cancel(for: self)
   }
+    
+    func makeCircular() {
+        let radius = 60/2.0
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+    
+   
 }

@@ -12,3 +12,5 @@ func printLog(_ object: Any..., tag: String = "") {
     debugPrint("\(String(describing: object))")
     #endif
 }
+
+let relativeDateFormatter = RelativeDateTimeFormatter()

@@ -11,8 +11,8 @@ import UIKit
 extension UIViewController {
     
     // MARK: - Methods
-    func present(errorMessage: HTTPError) {
-        let errorAlertController = UIAlertController(title: errorMessage.localizedDescription,
+    func present(errorMessage: ErrorViewModel) {
+        let errorAlertController = UIAlertController(title: errorMessage.message,
                                                      message: "",
                                                      preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
