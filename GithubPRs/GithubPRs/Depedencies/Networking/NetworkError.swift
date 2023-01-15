@@ -20,12 +20,12 @@ struct NetworkError: Error {
 struct HTTPError: Error {
     let message: String ///Fallback  generic message
     let underlyingError: NSError? ///Maps to URLSession NSError
-    let statusCode: Int? ///Maps to HTTP status code
+    let httpURLResponse: HTTPURLResponse? ///Maps to HTTPURLResponse
     
-    init(_ message: String, underlyingError: NSError? = nil, statusCode: Int? = nil) {
+    init(_ message: String, underlyingError: NSError? = nil, httpURLResponse: HTTPURLResponse? = nil) {
         self.message = message
         self.underlyingError = underlyingError
-        self.statusCode = statusCode
+        self.httpURLResponse = httpURLResponse
     }
     
 }
@@ -45,5 +45,9 @@ extension URLResponse {
             return 0
         }
         return statusCode
+    }
+    
+    var httpURLResponse: HTTPURLResponse? {
+       (self as? HTTPURLResponse)
     }
 }

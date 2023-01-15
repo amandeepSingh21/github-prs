@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         self.appWireframe = AppWireframe(window: self.window!)
         self.appWireframe.installRootViewController()
-        
+        window?.tintColor = .systemGreen
         window?.makeKeyAndVisible()
         return true
     }

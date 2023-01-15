@@ -79,8 +79,8 @@ struct PullRequest: Codable {
         return .open(self.createdAt)
     }
     
-    static func api(organization: String = "apple", repo: String = "swift", page: PageNumber ) -> Request {
-        Request(path: "/repos/\(organization)/\(repo)/pulls", queryParams: ["page": page.page, "per_page": page.perPage])
+    static func api(organization: String, repo: String, status: String, page: PageNumber) -> Request {
+        Request(path: "/repos/\(organization)/\(repo)/pulls", queryParams: ["page": page.page, "per_page": page.perPage, "state": status])
     }
 }
 

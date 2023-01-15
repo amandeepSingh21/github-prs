@@ -18,7 +18,6 @@ class NetworkManager {
     //MARK: - Private Properties
     private let session: URLSessionProtocol
     private var task: URLSessionDataTaskProtocol?
-    private var completionResult: CompletionResult?
     private let reachability: ReachabilityProtocol
     
     // MARK: - Initialiser
@@ -43,36 +42,37 @@ class NetworkManager {
     ///         - `message`: A fallback/generic error string. Last priority
     ///         - `underlyingError`: Optional. Maps to URLSession NSError. Parse this object after apiError as second priority 
     ///         - `statusCode`: Optional. Maps to HTTPURLResponse status code.
-    func dataTask(_ request: Request, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        completionResult = completion
-    
+    func dataTask(_ request: Request, completion: @escaping CompletionResult) {
+       
+        
         guard reachability.isConnectedToNetwork() else {
             completion(.failure(.init(.init("Internet is not connected"))))
             return
         }
-        task = session.dataTask(with: urlRequest(for: request)) { (data, response, error) in
+        task = session.dataTask(with: urlRequest(for: request)) { [weak self] (data, response, error) in
+            guard let self = self else { return }
             if let error = error {
                 if error.code == NetworkingConstants.RequestCancellationError {
                     return
                 }
-                let error = HTTPError(error.localizedDescription, underlyingError: error as NSError, statusCode: response?.httpStatusCode)
-                self.completionResult(.failure(NetworkError(error)))
+                let error = HTTPError(error.localizedDescription, underlyingError: error as NSError, httpURLResponse: response?.httpURLResponse)
+                self.completionResult(.failure(NetworkError(error)), completionResult: completion)
                 return
             }
 
             if let response = response, response.isSuccess {
                 if let data = data {
-                    self.completionResult(.success(data))
+                    self.completionResult(.success(data), completionResult: completion)
                 }
             } else {
                 let commonErrorMessage = NSLocalizedString("Something went wrong!", comment: "")
                 guard let data = data else {
-                    let error = HTTPError(commonErrorMessage,statusCode: response?.httpStatusCode)
-                    self.completionResult(.failure(NetworkError(error)))
+                    let error = HTTPError(commonErrorMessage,httpURLResponse: response?.httpURLResponse)
+                    self.completionResult(.failure(NetworkError(error)), completionResult: completion)
                     return
                 }
                 let error = HTTPError(commonErrorMessage)
-                self.completionResult(.failure(NetworkError(error, apiError: data)))
+                self.completionResult(.failure(NetworkError(error, apiError: data)), completionResult: completion)
                 
             }
         }
@@ -84,9 +84,9 @@ class NetworkManager {
     }
     
     //MARK: - Private Helper Functions
-    private func completionResult(_ result: Result<Data, NetworkError>) {
+    private func completionResult(_ result: Result<Data, NetworkError>, completionResult: @escaping CompletionResult) {
         DispatchQueue.main.async {
-            self.completionResult?(result)
+            completionResult(result)
         }
     }
     
@@ -94,7 +94,8 @@ class NetworkManager {
         let url = URL(NetworkingConstants.host, request)
         var result = URLRequest(url: url)
         result.httpMethod = request.method.rawValue
-        result.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+       // result.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        printLog(url)
         return result
     }
 }

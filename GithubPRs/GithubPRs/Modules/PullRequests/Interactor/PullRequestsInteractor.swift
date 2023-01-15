@@ -23,10 +23,13 @@ class PullRequestInteractor: PullRequestInteractorProtocol {
     }
     
     func load(_ request: Request, completion: @escaping PullRequestAPIResult) {
-        self.networkManager.dataTask(request) { result in
+        printLog(request)
+        self.networkManager.dataTask(request) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let data):
                 do {
+                    printLog(request)
                     let response = try decoder.decode([PullRequest].self, from: data)
                    let domain = response.map { $0.toDomain() }
                    completion(.success(domain))
@@ -40,9 +43,9 @@ class PullRequestInteractor: PullRequestInteractorProtocol {
     }
     
     func cancelRequest() {
-        URLSession.shared.getAllTasks { tasks in
-            _ =  tasks.filter { $0.state == .running }.map { $0.cancel() }
-        }
+       // URLSession.shared.getAllTasks { tasks in
+           // _ =  tasks.filter { $0.state == .running }.map { $0.cancel() }
+       // }
     }
    
     //MARK: Private
