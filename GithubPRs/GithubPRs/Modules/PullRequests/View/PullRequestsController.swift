@@ -7,10 +7,10 @@
 
 import UIKit
 
-class PullRequestsController: NiblessViewController {
+final class PullRequestsController: NiblessViewController {
     
     //MARK: - Child View Controller
-    let messageController: MessageController
+    private let messageController: MessageController
     
     //MARK: - Properties
     var rootView: PullRequestView
@@ -55,6 +55,4 @@ class PullRequestsController: NiblessViewController {
             }
         }
     }
-    
-
 }

@@ -11,7 +11,7 @@ struct PullRequestViewModel {
     let id: Int
     let title: String
     let body: String
-    let state: PullRequestState
+    let state: PullRequestState ///type safe way to model merged vs closed PRs
     let number: String
     let user: UserViewModel
     let reviewCommentsURL: URL

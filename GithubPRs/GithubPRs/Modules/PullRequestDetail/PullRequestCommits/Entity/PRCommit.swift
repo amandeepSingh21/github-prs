@@ -36,7 +36,6 @@ struct Commit: Decodable {
     let author, committer: CommitAuthor
     let message: String
     let commentCount: Int
-   
 }
 
 struct CommitAuthor: Decodable {

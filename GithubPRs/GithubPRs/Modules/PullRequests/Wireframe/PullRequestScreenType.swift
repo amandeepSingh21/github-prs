@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol ScreenType {
-    var displayValue: String { get }
-}
-
 enum PullRequestScreenType: CaseIterable, ScreenType {
     case open
     case closed
@@ -24,7 +20,7 @@ enum PullRequestScreenType: CaseIterable, ScreenType {
     
     var apiValue: String {
         switch self {
-        case .open: return "ppen"
+        case .open: return "open"
         case .closed: return "closed"
         }
     }

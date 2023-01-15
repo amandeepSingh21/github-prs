@@ -6,10 +6,9 @@
 //
 
 import Foundation
-
 import UIKit
 
-class PRCommitsView: NiblessView {
+final class PRCommitsView: NiblessView {
     
     // MARK: - Properties
     private let presenter: PRCommitsPresenterProtocol

@@ -26,11 +26,11 @@ class AppWireframe {
                                                                     screenTypes: [PullRequestDetailScreenType.comments, PullRequestDetailScreenType.commits],
                                                                     title: "PR Details")
        
-        let openPRWireframe: SegmentedControlInterface = PullRequestWireframe(pullRequestDetailWireframe: pullRequestDetailWireframe, screenType: .open)
-        let closedPRWireframe: SegmentedControlInterface = PullRequestWireframe(pullRequestDetailWireframe: pullRequestDetailWireframe, screenType: .closed)
+        let openPRWireframe: PRWireframeInterface = PullRequestWireframe(pullRequestDetailWireframe: pullRequestDetailWireframe, screenType: .open)
+        let closedPRWireframe: PRWireframeInterface = PullRequestWireframe(pullRequestDetailWireframe: pullRequestDetailWireframe, screenType: .closed)
        
         
-        let segmentedControlWireframe = SegmentedControlWireframe(openPRWireframe,closedPRWireframe, screenTypes: [PullRequestScreenType.open, PullRequestScreenType.closed], title: "Swift")
+        let segmentedControlWireframe = PullRequestContainerWireframe(openPRWireframe,closedPRWireframe, screenTypes: [PullRequestScreenType.open, PullRequestScreenType.closed], title: "Swift")
        
         self.tabBarWireframe = TabBarWireframe(segmentedControlWireframe)
     }

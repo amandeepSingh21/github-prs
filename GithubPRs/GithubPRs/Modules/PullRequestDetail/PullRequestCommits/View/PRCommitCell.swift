@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PRCommitCell : UITableViewCell {
+final class PRCommitCell : UITableViewCell {
     //MARK: - Properties
     static let identifier = "PRCommitCell"
     
@@ -29,7 +29,7 @@ class PRCommitCell : UITableViewCell {
     }
     
     ///Image loader
-    let loginSpinner: UIActivityIndicatorView = {
+    private let loginSpinner: UIActivityIndicatorView = {
         let loginSpinner = UIActivityIndicatorView(style: .medium)
         loginSpinner.translatesAutoresizingMaskIntoConstraints = false
         loginSpinner.hidesWhenStopped = true

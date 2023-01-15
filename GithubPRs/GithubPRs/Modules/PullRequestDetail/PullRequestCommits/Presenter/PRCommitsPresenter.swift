@@ -21,7 +21,7 @@ protocol PRCommitsPresenterProtocol {
 }
 
 
-class PRCommitsPresenter: PRCommitsPresenterProtocol {
+final class PRCommitsPresenter: PRCommitsPresenterProtocol {
     //MARK: State
     private var pullRequest: PullRequestViewModel
     private(set) var commits: [PRCommitViewModel] = []

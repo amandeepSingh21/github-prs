@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol ScreenType {
+    var displayValue: String { get }
+}
+
 /// Reuseable tabar wrapper around UISegmentedControl used to render child view controllers
 final class SegmentedViewController: NiblessViewController {
     

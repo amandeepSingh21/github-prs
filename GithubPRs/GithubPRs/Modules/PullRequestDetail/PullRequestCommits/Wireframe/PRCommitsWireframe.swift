@@ -8,14 +8,16 @@
 import Foundation
 import SafariServices
 
-final class PRCommitsWireframe {
-    
+protocol PRCommitsWireframeInterface: AnyObject {
+    func buildView(_ pullRequest: PullRequestViewModel) -> UIViewController
+    func showCommentsDetailScreen(_ url: URL)
+}
+
+final class PRCommitsWireframe: PRCommitsWireframeInterface {
     private(set) weak var prCommitsController: UIViewController?
  
-    // MARK: Public
-    init() {}
-    
-    func configuredViewController(_ pullRequest: PullRequestViewModel) -> UIViewController {
+    // MARK: Public methods
+    func buildView(_ pullRequest: PullRequestViewModel) -> UIViewController {
         let prCommitsController = newPRCommitControllerController(pullRequest)
         defer {
             self.prCommitsController = prCommitsController
@@ -24,9 +26,7 @@ final class PRCommitsWireframe {
     }
     
     func showCommentsDetailScreen(_ url: URL) {
-        guard let controller = self.prCommitsController, let parent = controller.parent else {
-            return
-        }
+        guard let controller = self.prCommitsController else { return }
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
         let vc = SFSafariViewController(url: url, configuration: config)
@@ -43,5 +43,4 @@ final class PRCommitsWireframe {
         let vc = PRCommitsController(presenter: presenter)
         return vc
     }
-    
 }

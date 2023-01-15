@@ -9,14 +9,17 @@ import Foundation
 import UIKit
 import SafariServices
 
-final class PRCommentsWireframe {
+protocol PRCommentsWireframeInterface: AnyObject {
+    func buildView(_ pullRequest: PullRequestViewModel) -> UIViewController
+    func showCommentsDetailScreen(_ url: URL)
+}
+
+final class PRCommentsWireframe: PRCommentsWireframeInterface {
     
     private(set) weak var prCommentsController: UIViewController?
  
-    // MARK: Public
-    init() {}
-    
-    func configuredViewController(_ pullRequest: PullRequestViewModel) -> UIViewController {
+    //MARK: Public methods
+    func buildView(_ pullRequest: PullRequestViewModel) -> UIViewController {
         let prCommentsController = newPRCommentsControllerController(pullRequest)
         defer {
             self.prCommentsController = prCommentsController
@@ -25,9 +28,7 @@ final class PRCommentsWireframe {
     }
     
     func showCommentsDetailScreen(_ url: URL) {
-        guard let controller = self.prCommentsController, let parent = controller.parent else {
-            return
-        }
+        guard let controller = self.prCommentsController else { return }
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
         let vc = SFSafariViewController(url: url, configuration: config)
@@ -35,7 +36,7 @@ final class PRCommentsWireframe {
         controller.present(vc, animated: true)
     }
     
-    // MARK: - Private
+    //MARK: - Private
     private func newPRCommentsControllerController(_ pullRequest: PullRequestViewModel) -> UIViewController {
         let interactor = PRCommentsInteractor()
         let presenter = PRCommentsPresenter(wireframe: self,
@@ -44,5 +45,4 @@ final class PRCommentsWireframe {
         let pullRequestsController = PRCommentsController(presenter: presenter)
         return pullRequestsController
     }
-    
 }

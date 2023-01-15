@@ -8,18 +8,13 @@
 import Foundation
 import UIKit
 
-protocol SegmentedControlInterface: AnyObject {
-    func configuredViewController() -> UIViewController
-}
-
-class SegmentedControlWireframe: TabBarInterface {
-    
-    let wireFrames: [SegmentedControlInterface]
+final class PullRequestContainerWireframe: TabBarInterface {
+    private let wireFrames: [PRWireframeInterface]
     private let title: String
     private let screenTypes: [ScreenType]
 
-    // MARK: - Initializers
-    init(_ wireFrames: SegmentedControlInterface..., screenTypes: [ScreenType], title: String) {
+    //MARK: - Public methods
+    init(_ wireFrames: PRWireframeInterface..., screenTypes: [ScreenType], title: String) {
         self.wireFrames = wireFrames
         self.title = title
         self.screenTypes = screenTypes
@@ -27,7 +22,7 @@ class SegmentedControlWireframe: TabBarInterface {
     
     func configuredViewController() -> UIViewController {
         let segmentedViewController = SegmentedViewController(screenTypes: screenTypes, title: title)
-        segmentedViewController.viewControllers = wireFrames.map({ $0.configuredViewController() })
+        segmentedViewController.viewControllers = wireFrames.map({ $0.buildView() })
         let vc = UINavigationController(rootViewController: segmentedViewController)
         segmentedViewController.navigationController?.navigationBar.prefersLargeTitles = true
         return vc

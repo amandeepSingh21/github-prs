@@ -7,14 +7,14 @@
 
 import Foundation
 
-class PRCommitsController: NiblessViewController {
+final class PRCommitsController: NiblessViewController {
     
     //MARK: - Child View Controller
-    let messageController: MessageController
+    private let messageController: MessageController
     
     //MARK: - Properties
-    var rootView: PRCommitsView
-    let presenter: PRCommitsPresenterProtocol
+    private var rootView: PRCommitsView
+    private let presenter: PRCommitsPresenterProtocol
     
     //MARK: - Methods
     init(presenter: PRCommitsPresenterProtocol) {

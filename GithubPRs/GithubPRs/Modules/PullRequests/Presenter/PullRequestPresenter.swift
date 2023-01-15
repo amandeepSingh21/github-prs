@@ -25,7 +25,7 @@ protocol PullRequestPresenterProtocol {
 }
 
 
-class PullRequestPresenter: PullRequestPresenterProtocol {        
+final class PullRequestPresenter: PullRequestPresenterProtocol {        
     //MARK: State
     private var organisationName: String = "apple"
     private let screenType: PullRequestScreenType
@@ -109,11 +109,11 @@ extension PullRequestPresenter: PaginationDelegate {
 //MARK: Navigation
 extension PullRequestPresenter {
     func didSelect(pullRequest: PullRequestViewModel) {
-        self.wireframe.showPullRequestDetailScreen(pullRequest)
+        self.wireframe.showDetailScreen(pullRequest)
     }
 }
 
-extension PullRequestPresenter{
+extension PullRequestPresenter {
     func handleSuccess(_ result: [PullRequestViewModel]) {
         if paginator?.isRefreshing ?? false {
             self.pullRequests = result

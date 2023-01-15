@@ -8,21 +8,26 @@
 import Foundation
 import UIKit
 
-final class PullRequestWireframe: SegmentedControlInterface {
-    
+protocol PRWireframeInterface: AnyObject {
+    func showDetailScreen(_ viewModel: PullRequestViewModel)
+    func buildView() -> UIViewController
+    init(pullRequestDetailWireframe: PRDetailWireframeInterface,
+         screenType: PullRequestScreenType)
+}
+
+final class PullRequestWireframe: PRWireframeInterface {
     private(set) weak var pullRequestsController: UIViewController?
-    private  let screenType: PullRequestScreenType
-    private  let pullRequestDetailWireframe: PullRequestDetailWireframeInterface
+    private let screenType: PullRequestScreenType
+    private let pullRequestDetailWireframe: PRDetailWireframeInterface
  
-   
-    // MARK: Public
-    init(pullRequestDetailWireframe: PullRequestDetailWireframeInterface,
+    // MARK: Public methods
+    init(pullRequestDetailWireframe: PRDetailWireframeInterface,
          screenType: PullRequestScreenType) {
         self.pullRequestDetailWireframe = pullRequestDetailWireframe
         self.screenType = screenType
     }
     
-    func configuredViewController() -> UIViewController {
+    func buildView() -> UIViewController {
         let pullRequestsController = newPullRequestsViewController(self.screenType)
         defer {
             self.pullRequestsController = pullRequestsController
@@ -30,13 +35,13 @@ final class PullRequestWireframe: SegmentedControlInterface {
         return pullRequestsController
     }
     
-    func showPullRequestDetailScreen(_ pr: PullRequestViewModel) {
+    func showDetailScreen(_ viewModel: PullRequestViewModel) {
         guard let controller = self.pullRequestsController,
               let parent = controller.parent,
               let nav = parent.navigationController
         else { return }
         
-        self.pullRequestDetailWireframe.showDetailScreen(for: pr, in: nav)
+        self.pullRequestDetailWireframe.showDetailScreen(for: viewModel, in: nav)
     }
     
     // MARK: - Private

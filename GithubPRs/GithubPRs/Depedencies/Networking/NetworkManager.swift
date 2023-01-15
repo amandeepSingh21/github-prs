@@ -8,7 +8,7 @@
 import Foundation
 import Network
 
-class NetworkManager {
+final class NetworkManager {
     // MARK: Typealias
     typealias CompletionResult = (Result<Data, NetworkError>) -> Void
     

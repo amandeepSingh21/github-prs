@@ -14,7 +14,7 @@ protocol PullRequestInteractorProtocol {
 
 typealias PullRequestAPIResult = (Result<[PullRequestViewModel], ErrorViewModel>) -> Void
 
-class PullRequestInteractor: PullRequestInteractorProtocol {
+final class PullRequestInteractor: PullRequestInteractorProtocol {
     private let networkManager: NetworkManager
     
     //MARK: Public

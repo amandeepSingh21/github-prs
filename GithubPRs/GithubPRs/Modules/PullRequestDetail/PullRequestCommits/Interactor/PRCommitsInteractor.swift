@@ -14,7 +14,7 @@ protocol PRCommitsInteractorProtocol {
 
 typealias PRCommitAPIResult = (Result<[PRCommitViewModel], ErrorViewModel>) -> Void
 
-class PRCommitsInteractor: PRCommitsInteractorProtocol {
+final class PRCommitsInteractor: PRCommitsInteractorProtocol {
     private let networkManager: NetworkManager
     
     //MARK: Public

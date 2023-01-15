@@ -8,18 +8,21 @@
 import Foundation
 import UIKit
 
-protocol PullRequestDetailWireframeInterface: AnyObject {
-    func showDetailScreen(for pr: PullRequestViewModel, in navigationController: UINavigationController)
+protocol PRDetailWireframeInterface: AnyObject {
+    func showDetailScreen(for viewModel: PullRequestViewModel, in navigationController: UINavigationController)
+    init(commitsWireframe: PRCommitsWireframe,
+         commentsWirefram: PRCommentsWireframe,
+         screenTypes: [ScreenType],
+         title: String)
 }
 
-class PullRequestDetailWireframe: PullRequestDetailWireframeInterface {
-    
-    let commitsWireframe: PRCommitsWireframe
-    let commentsWirefram: PRCommentsWireframe
+final class PullRequestDetailWireframe: PRDetailWireframeInterface {
+    private let commitsWireframe: PRCommitsWireframe
+    private let commentsWirefram: PRCommentsWireframe
     private let title: String
     private let screenTypes: [ScreenType]
 
-    // MARK: - Initializers
+    // MARK: - Public
     init(commitsWireframe: PRCommitsWireframe,
          commentsWirefram: PRCommentsWireframe,
          screenTypes: [ScreenType],
@@ -32,8 +35,8 @@ class PullRequestDetailWireframe: PullRequestDetailWireframeInterface {
     
     func showDetailScreen(for pr: PullRequestViewModel, in navigationController: UINavigationController)  {
         let segmentedViewController = SegmentedViewController(screenTypes: screenTypes, title: title)
-       let commitsVC = self.commitsWireframe.configuredViewController(pr)
-        let commentsVC = self.commentsWirefram.configuredViewController(pr)
+        let commitsVC = self.commitsWireframe.buildView(pr)
+        let commentsVC = self.commentsWirefram.buildView(pr)
         segmentedViewController.viewControllers = [commentsVC, commitsVC]
         navigationController.pushViewController(segmentedViewController, animated: true)
     }

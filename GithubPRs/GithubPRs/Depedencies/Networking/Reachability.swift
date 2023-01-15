@@ -12,7 +12,6 @@ protocol ReachabilityProtocol: AnyObject {
     func isConnectedToNetwork() -> Bool
     func startMonitoring()
     func stopMonitoring()
-    //sdjhsdhjks
 }
 
 
