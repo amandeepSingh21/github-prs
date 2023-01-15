@@ -8,40 +8,43 @@
 import Foundation
 import UIKit
 
-class PullRequestWireframe: TabBarInterface {
-    
-    private(set) weak var pullRequestsViewController: UIViewController?
 
-    private let pullRequestDetailWireframe: PullRequestDetailWireframe
-   
+
+final class PullRequestWireframe: SegmentedControlInterface {
     
+    private(set) weak var pullRequestsController: UIViewController?
+    private  let screenType: PullRequestScreenType
+    private  let pullRequestDetailWireframe: PullRequestDetailWireframe
+ 
+   
     // MARK: Public
-    init(pullRequestDetailWireframe: PullRequestDetailWireframe) {
+    init(pullRequestDetailWireframe: PullRequestDetailWireframe,
+         screenType: PullRequestScreenType) {
         self.pullRequestDetailWireframe = pullRequestDetailWireframe
+        self.screenType = screenType
     }
     
     func configuredViewController() -> UIViewController {
-        let pullRequestsViewController = newPullRequestsViewController()
-        
-        let navigationController = UINavigationController(rootViewController: pullRequestsViewController)
-        navigationController.navigationBar.prefersLargeTitles = true
+        let pullRequestsController = newPullRequestsViewController(self.screenType)
         defer {
-            self.pullRequestsViewController = pullRequestsViewController
+            self.pullRequestsController = pullRequestsController
         }
-        return navigationController
+        return pullRequestsController
     }
     
     func showPullRequestDetailScreen() {
-        guard let navigation = self.pullRequestsViewController?.navigationController else {
+        guard let controller = self.pullRequestsController, let parent = controller.parent else {
             return
         }
-        self.pullRequestDetailWireframe.present(in: navigation)
+       // container.showPullRequestDetailScreen()
     }
     
     // MARK: - Private
-    private func newPullRequestsViewController() -> UIViewController {
-        let pullRequestsController = PullRequestsController()
+    private func newPullRequestsViewController(_ screenType: PullRequestScreenType) -> UIViewController {
+        let interactor = PullRequestInteractor()
+        let presenter = PullRequestPresenter(wireframe: self, interactor: interactor, screenType: screenType)
+        let pullRequestsController = PullRequestsController(presenter: presenter)
         return pullRequestsController
     }
-   
+    
 }

@@ -17,4 +17,8 @@ struct PullRequestViewModel {
     let reviewCommentsURL: URL
     let commitsURL: URL
     let tags: [TagViewModel]
+    
+    var caption: String {
+        "\(number) \(state.description) \(relativeDateFormatter.localizedString(for: state.date, relativeTo: Date())) by \(user.userName)"
+    }
 }

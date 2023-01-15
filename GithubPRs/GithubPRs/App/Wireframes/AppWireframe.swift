@@ -22,8 +22,14 @@ class AppWireframe {
         let prCommitsWireframe = PullRequestCommitsWireframe()
         let prCommentsWireframe = PullRequestCommentsWireframe()
         let pullRequestDetailWireframe = PullRequestDetailWireframe(commitsWireframe: prCommitsWireframe, commentsWireframe: prCommentsWireframe)
-        let pullRequestWireframe =  PullRequestWireframe(pullRequestDetailWireframe: pullRequestDetailWireframe)
-        self.tabBarWireframe = TabBarWireframe(pullRequestWireframe)
+       
+        let openPRWireframe: SegmentedControlInterface = PullRequestWireframe(pullRequestDetailWireframe: pullRequestDetailWireframe, screenType: .open)
+        let closedPRWireframe: SegmentedControlInterface = PullRequestWireframe(pullRequestDetailWireframe: pullRequestDetailWireframe, screenType: .closed)
+       
+        
+        let segmentedControlWireframe = SegmentedControlWireframe(openPRWireframe,closedPRWireframe, screenTypes: [PullRequestScreenType.open, PullRequestScreenType.closed], title: "Swift")
+       
+        self.tabBarWireframe = TabBarWireframe(segmentedControlWireframe)
     }
     
     func installRootViewController() {

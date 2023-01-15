@@ -56,6 +56,15 @@
 		46DED6812973104A00406D2B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6802973104A00406D2B /* Observable.swift */; };
 		46DED6862973116C00406D2B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6852973116C00406D2B /* ImageLoader.swift */; };
 		46DED6882973117300406D2B /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6872973117300406D2B /* UIImageLoader.swift */; };
+		46DED68A297311C100406D2B /* PullRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED689297311C100406D2B /* PullRequestCell.swift */; };
+		46DED68C2973145B00406D2B /* PullRequestViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED68B2973145B00406D2B /* PullRequestViewState.swift */; };
+		46DED68E297316D400406D2B /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED68D297316D400406D2B /* Paginator.swift */; };
+		46DED6902973188D00406D2B /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED68F2973188D00406D2B /* MessageController.swift */; };
+		46DED692297318A900406D2B /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED691297318A900406D2B /* MessageView.swift */; };
+		46DED6942973399E00406D2B /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6932973399E00406D2B /* SegmentedViewController.swift */; };
+		46DED6962973C3F200406D2B /* PullRequestsContainerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6952973C3F200406D2B /* PullRequestsContainerWireframe.swift */; };
+		46DED6982973C7E800406D2B /* PullRequestScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED6972973C7E800406D2B /* PullRequestScreenType.swift */; };
+		46DED69B2973E1A400406D2B /* SegmentedControlWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DED69A2973E1A400406D2B /* SegmentedControlWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +138,15 @@
 		46DED6802973104A00406D2B /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		46DED6852973116C00406D2B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		46DED6872973117300406D2B /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
+		46DED689297311C100406D2B /* PullRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCell.swift; sourceTree = "<group>"; };
+		46DED68B2973145B00406D2B /* PullRequestViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewState.swift; sourceTree = "<group>"; };
+		46DED68D297316D400406D2B /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
+		46DED68F2973188D00406D2B /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		46DED691297318A900406D2B /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		46DED6932973399E00406D2B /* SegmentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
+		46DED6952973C3F200406D2B /* PullRequestsContainerWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsContainerWireframe.swift; sourceTree = "<group>"; };
+		46DED6972973C7E800406D2B /* PullRequestScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestScreenType.swift; sourceTree = "<group>"; };
+		46DED69A2973E1A400406D2B /* SegmentedControlWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,7 +300,9 @@
 			isa = PBXGroup;
 			children = (
 				46DD5BBB29728D6A0066140D /* AppWireframe.swift */,
+				46DED6932973399E00406D2B /* SegmentedViewController.swift */,
 				46DD5BBD297290E90066140D /* TabBarWireframe.swift */,
+				46DED69A2973E1A400406D2B /* SegmentedControlWireframe.swift */,
 			);
 			path = Wireframes;
 			sourceTree = "<group>";
@@ -292,6 +312,8 @@
 			children = (
 				461C5372297278FF00A67FCA /* PullRequestsController.swift */,
 				46DED67B29730F7600406D2B /* PullRequestView.swift */,
+				46DED689297311C100406D2B /* PullRequestCell.swift */,
+				46DED68B2973145B00406D2B /* PullRequestViewState.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,6 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				46DD5BBF297292540066140D /* PullRequestsWireframe.swift */,
+				46DED6952973C3F200406D2B /* PullRequestsContainerWireframe.swift */,
+				46DED6972973C7E800406D2B /* PullRequestScreenType.swift */,
 			);
 			path = Wireframe;
 			sourceTree = "<group>";
@@ -550,6 +574,7 @@
 				46DD5D0A2972EA450066140D /* ErrorViewModel.swift */,
 				46DD5D0C2972EBA50066140D /* JsonDecoder.swift */,
 				46DD5D112972F3530066140D /* PageNumber.swift */,
+				46DED68D297316D400406D2B /* Paginator.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -562,6 +587,8 @@
 				46DED67929730EEC00406D2B /* ViewControllerContainment.swift */,
 				46DD5D172973069C0066140D /* Utils.swift */,
 				46DED6802973104A00406D2B /* Observable.swift */,
+				46DED68F2973188D00406D2B /* MessageController.swift */,
+				46DED691297318A900406D2B /* MessageView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -712,12 +739,14 @@
 				46DD5BF52972B7FC0066140D /* License.swift in Sources */,
 				46DD5D092972E9D60066140D /* PullRequestsInteractor.swift in Sources */,
 				46DED67029730E7400406D2B /* UIView+Extensions.swift in Sources */,
+				46DED68E297316D400406D2B /* Paginator.swift in Sources */,
 				46DD5BBC29728D6A0066140D /* AppWireframe.swift in Sources */,
 				461C5373297278FF00A67FCA /* PullRequestsController.swift in Sources */,
 				46DED67229730E9100406D2B /* Collections+Extensions.swift in Sources */,
 				46DED6812973104A00406D2B /* Observable.swift in Sources */,
 				46DD5C032972CB6F0066140D /* URL+Extension.swift in Sources */,
 				46DD5BF12972B7CB0066140D /* Respository.swift in Sources */,
+				46DED68C2973145B00406D2B /* PullRequestViewState.swift in Sources */,
 				46DD5D0B2972EA450066140D /* ErrorViewModel.swift in Sources */,
 				46DD5D122972F3530066140D /* PageNumber.swift in Sources */,
 				46DD5BC22972964F0066140D /* PullRequestDetailWireframe.swift in Sources */,
@@ -732,18 +761,25 @@
 				46DD5BEC2972B7710066140D /* IssueLabel.swift in Sources */,
 				46DED67E29730FA800406D2B /* PullRequestPresenter.swift in Sources */,
 				46DD5BF92972BDEA0066140D /* PullRequestState.swift in Sources */,
+				46DED6962973C3F200406D2B /* PullRequestsContainerWireframe.swift in Sources */,
 				46DD5BEA2972A2530066140D /* PullRequest.swift in Sources */,
 				46DED6862973116C00406D2B /* ImageLoader.swift in Sources */,
 				461C536F297278FF00A67FCA /* AppDelegate.swift in Sources */,
+				46DED692297318A900406D2B /* MessageView.swift in Sources */,
 				46DD5BEF2972B7950066140D /* User.swift in Sources */,
 				461C5379297278FF00A67FCA /* GithubPRs.xcdatamodeld in Sources */,
+				46DED68A297311C100406D2B /* PullRequestCell.swift in Sources */,
 				46DD5BBE297290E90066140D /* TabBarWireframe.swift in Sources */,
 				46DD5C012972CB460066140D /* Request.swift in Sources */,
 				46DD5D042972DC1A0066140D /* NetworkingConstants.swift in Sources */,
 				46DD5BC0297292540066140D /* PullRequestsWireframe.swift in Sources */,
 				46DD5D142972FF430066140D /* Reachability.swift in Sources */,
+				46DED6982973C7E800406D2B /* PullRequestScreenType.swift in Sources */,
+				46DED6902973188D00406D2B /* MessageController.swift in Sources */,
+				46DED69B2973E1A400406D2B /* SegmentedControlWireframe.swift in Sources */,
 				46DD5D182973069C0066140D /* Utils.swift in Sources */,
 				46DED6882973117300406D2B /* UIImageLoader.swift in Sources */,
+				46DED6942973399E00406D2B /* SegmentedViewController.swift in Sources */,
 				46DED67A29730EEC00406D2B /* ViewControllerContainment.swift in Sources */,
 				46DD5D062972DC590066140D /* NetworkError.swift in Sources */,
 				46DD5BFE2972C0B30066140D /* TagViewModel.swift in Sources */,
