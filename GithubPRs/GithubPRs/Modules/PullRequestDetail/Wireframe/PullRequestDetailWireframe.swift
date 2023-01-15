@@ -14,13 +14,13 @@ protocol PullRequestDetailWireframeInterface: AnyObject {
 
 class PullRequestDetailWireframe: PullRequestDetailWireframeInterface {
     
-    let commitsWireframe: PullRequestCommitsWireframe
+    let commitsWireframe: PRCommitsWireframe
     let commentsWirefram: PRCommentsWireframe
     private let title: String
     private let screenTypes: [ScreenType]
 
     // MARK: - Initializers
-    init(commitsWireframe: PullRequestCommitsWireframe,
+    init(commitsWireframe: PRCommitsWireframe,
          commentsWirefram: PRCommentsWireframe,
          screenTypes: [ScreenType],
          title: String) {
@@ -32,9 +32,9 @@ class PullRequestDetailWireframe: PullRequestDetailWireframeInterface {
     
     func showDetailScreen(for pr: PullRequestViewModel, in navigationController: UINavigationController)  {
         let segmentedViewController = SegmentedViewController(screenTypes: screenTypes, title: title)
-       // let commitsVC = self.commitsWireframe.configuredViewController()
+       let commitsVC = self.commitsWireframe.configuredViewController(pr)
         let commentsVC = self.commentsWirefram.configuredViewController(pr)
-        segmentedViewController.viewControllers = [commentsVC]
+        segmentedViewController.viewControllers = [commentsVC, commitsVC]
         navigationController.pushViewController(segmentedViewController, animated: true)
     }
 }

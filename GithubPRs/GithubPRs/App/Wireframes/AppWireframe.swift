@@ -19,7 +19,7 @@ class AppWireframe {
     // MARK: - Public
     init(window: UIWindow) {
         self.window = window
-        let prCommitsWireframe = PullRequestCommitsWireframe()
+        let prCommitsWireframe = PRCommitsWireframe()
         let prCommentsWireframe = PRCommentsWireframe()
         let pullRequestDetailWireframe = PullRequestDetailWireframe(commitsWireframe: prCommitsWireframe,
                                                                     commentsWirefram: prCommentsWireframe,

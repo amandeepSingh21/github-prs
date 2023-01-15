@@ -1,31 +1,30 @@
 //
-//  PullRequestCommentsWireframe.swift
+//  PullRequestCommitsWireframe.swift
 //  GithubPRs
 //
 //  Created by Amandeep on 14/01/23.
 //
 
 import Foundation
-import UIKit
 import SafariServices
 
-final class PRCommentsWireframe {
+final class PRCommitsWireframe {
     
-    private(set) weak var prCommentsController: UIViewController?
+    private(set) weak var prCommitsController: UIViewController?
  
     // MARK: Public
     init() {}
     
     func configuredViewController(_ pullRequest: PullRequestViewModel) -> UIViewController {
-        let prCommentsController = newPRCommentsControllerController(pullRequest)
+        let prCommitsController = newPRCommitControllerController(pullRequest)
         defer {
-            self.prCommentsController = prCommentsController
+            self.prCommitsController = prCommitsController
         }
-        return prCommentsController
+        return prCommitsController
     }
     
     func showCommentsDetailScreen(_ url: URL) {
-        guard let controller = self.prCommentsController, let parent = controller.parent else {
+        guard let controller = self.prCommitsController, let parent = controller.parent else {
             return
         }
         let config = SFSafariViewController.Configuration()
@@ -36,13 +35,13 @@ final class PRCommentsWireframe {
     }
     
     // MARK: - Private
-    private func newPRCommentsControllerController(_ pullRequest: PullRequestViewModel) -> UIViewController {
-        let interactor = PRCommentsInteractor()
-        let presenter = PRCommentsPresenter(wireframe: self,
+    private func newPRCommitControllerController(_ pullRequest: PullRequestViewModel) -> UIViewController {
+        let interactor = PRCommitsInteractor()
+        let presenter = PRCommitsPresenter(wireframe: self,
                                             interactor: interactor,
                                             pullRequest: pullRequest)
-        let pullRequestsController = PRCommentsController(presenter: presenter)
-        return pullRequestsController
+        let vc = PRCommitsController(presenter: presenter)
+        return vc
     }
     
 }

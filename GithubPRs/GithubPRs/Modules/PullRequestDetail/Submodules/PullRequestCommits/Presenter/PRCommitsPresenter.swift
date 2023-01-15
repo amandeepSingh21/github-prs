@@ -1,5 +1,5 @@
 //
-//  PRCommentsPresenter.swift
+//  PRCommitsPresenter.swift
 //  GithubPRs
 //
 //  Created by Amandeep on 15/01/23.
@@ -7,29 +7,27 @@
 
 import Foundation
 
-protocol PRCommentsPresenterProtocol {
-  
+protocol PRCommitsPresenterProtocol {
     func load()
     func loadMore()
     func refresh()
-    func didSelect(comment: PRCommentViewModel)
-    var comments: [PRCommentViewModel] { get }
+    func didSelect(commit: PRCommitViewModel)
+    var commits: [PRCommitViewModel] { get }
     var paginator: Paginator? { get }
     ///Modified Viper: Using Observables we have eliminated Presnter -> View protocol
     var viewState: Observable<PullRequestViewState> { get }
     var indexPathsToReload: Observable<[IndexPath]?>  { get }
     var resetScrollViewOffset: Observable<Bool> { get }
-    
 }
 
 
-class PRCommentsPresenter: PRCommentsPresenterProtocol {
+class PRCommitsPresenter: PRCommitsPresenterProtocol {
     //MARK: State
     private var pullRequest: PullRequestViewModel
-    private(set) var comments: [PRCommentViewModel] = []
+    private(set) var commits: [PRCommitViewModel] = []
 
     //MARK: Presenter to view controller communication
-    var viewState: Observable<PullRequestViewState> =  Observable(PullRequestViewState.notLoaded)
+    var viewState: Observable<PullRequestViewState> = Observable(PullRequestViewState.notLoaded)
     //MARK: Presenter to view communication
     var indexPathsToReload: Observable<[IndexPath]?> = Observable(nil)
     var fullReload:Observable<Bool> = Observable(false)
@@ -38,15 +36,15 @@ class PRCommentsPresenter: PRCommentsPresenterProtocol {
     //MARK: Dependencies
     ///Abstraction for pagination
     var paginator: Paginator? {
-        didSet { self.comments = [] }
+        didSet { self.commits = [] }
     }
     
-    private let wireframe: PRCommentsWireframe
-    private let interactor: PRCommentsInteractorProtocol
+    private let wireframe: PRCommitsWireframe
+    private let interactor: PRCommitsInteractorProtocol
 
     //MARK: Init
-    init(wireframe: PRCommentsWireframe,
-         interactor: PRCommentsInteractorProtocol,
+    init(wireframe: PRCommitsWireframe,
+         interactor: PRCommitsInteractorProtocol,
          pullRequest: PullRequestViewModel
     ) {
         self.wireframe = wireframe
@@ -58,7 +56,7 @@ class PRCommentsPresenter: PRCommentsPresenterProtocol {
     func load() {
         self.paginator = Paginator()
         self.paginator?.delegate = self
-        self.viewState.value = .loading("Comments")
+        self.viewState.value = .loading("Commits")
         self.resetScrollViewOffset.value = true
         self.paginator?.loadData()
     }
@@ -76,11 +74,11 @@ class PRCommentsPresenter: PRCommentsPresenterProtocol {
 }
 
 //MARK: Pagination handler
-extension PRCommentsPresenter: PaginationDelegate {
+extension PRCommitsPresenter: PaginationDelegate {
     ///Callback from `loadData()` which in turn calls back `reload(indexPath:)` based on api succes or failure
     func loadMore(_ pageNumber: Int, onSuccess: (([Any]) -> Void)?, onError: ((Error) -> Void)?) {
         //API Call
-        guard let apiRequest = PRComment.api(pr: pullRequest, page: .init(page: pageNumber)) else { return }
+        guard let apiRequest = PRCommit.api(pr: pullRequest, page: .init(page: pageNumber)) else { return }
         self.interactor.load(apiRequest) { [weak self] result in
             switch result {
             case .success(let comments):
@@ -101,20 +99,20 @@ extension PRCommentsPresenter: PaginationDelegate {
 
 
 //MARK: Navigation
-extension PRCommentsPresenter {
-    func didSelect(comment: PRCommentViewModel) {
-        self.wireframe.showCommentsDetailScreen(comment.htmlURL)
+extension PRCommitsPresenter {
+    func didSelect(commit: PRCommitViewModel) {
+        self.wireframe.showCommentsDetailScreen(commit.htmlURL)
     }
 }
 
-extension PRCommentsPresenter{
-    func handleSuccess(_ result: [PRCommentViewModel]) {
+extension PRCommitsPresenter {
+    func handleSuccess(_ result: [PRCommitViewModel]) {
         if paginator?.isRefreshing ?? false {
-            self.comments = result
+            self.commits = result
         } else {
-            self.comments = self.comments + result
+            self.commits = self.commits + result
         }
-        if self.comments.isEmpty {
+        if self.commits.isEmpty {
             self.viewState.value = .noResultsFound
         } else {
             self.viewState.value = .loaded
@@ -125,4 +123,3 @@ extension PRCommentsPresenter{
         self.viewState.value = .error(error)
     }
 }
-

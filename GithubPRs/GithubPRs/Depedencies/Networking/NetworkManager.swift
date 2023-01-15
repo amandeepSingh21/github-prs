@@ -71,7 +71,12 @@ class NetworkManager {
                     self.completionResult(.failure(NetworkError(error)), completionResult: completion)
                     return
                 }
-                let error = HTTPError(commonErrorMessage)
+                var error = HTTPError(commonErrorMessage)
+                if let message = self.errorForRateLimit(response?.httpURLResponse) {
+                    error = HTTPError(message)
+                    self.completionResult(.failure(NetworkError(error, apiError: nil)), completionResult: completion)
+                    return
+                }
                 self.completionResult(.failure(NetworkError(error, apiError: data)), completionResult: completion)
                 
             }
@@ -98,4 +103,19 @@ class NetworkManager {
         printLog(url)
         return result
     }
+    
+    private func errorForRateLimit(_ urlResponse: HTTPURLResponse?) -> String? {
+        guard let urlResponse  = urlResponse else { return nil }
+        guard let remainingLimit = urlResponse.value(forHTTPHeaderField: "X-RateLimit-Remaining") else { return nil }
+        guard let limit = Int(remainingLimit), limit == 0 else { return nil }
+        guard let resetTime = urlResponse.value(forHTTPHeaderField: "X-RateLimit-Reset") else { return nil }
+        guard let resetTimeInDouble = Double(resetTime) else { return nil }
+       
+        let startDate = Date()
+        let endDate = Date(timeIntervalSince1970: resetTimeInDouble)
+        let diffSeconds = Int(endDate.timeIntervalSince1970 - startDate.timeIntervalSince1970)
+        let minutes = diffSeconds / 60
+        return "Rate limited: Please try again in: \(minutes) minutes"
+    }
+
 }
