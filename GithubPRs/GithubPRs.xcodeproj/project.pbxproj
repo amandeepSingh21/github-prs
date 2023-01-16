@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		461C536F297278FF00A67FCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461C536E297278FF00A67FCA /* AppDelegate.swift */; };
 		461C5373297278FF00A67FCA /* PullRequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461C5372297278FF00A67FCA /* PullRequestsController.swift */; };
-		461C5379297278FF00A67FCA /* GithubPRs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 461C5377297278FF00A67FCA /* GithubPRs.xcdatamodeld */; };
 		461C537B2972790000A67FCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461C537A2972790000A67FCA /* Assets.xcassets */; };
 		461C537E2972790000A67FCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461C537C2972790000A67FCA /* LaunchScreen.storyboard */; };
 		461C53892972790000A67FCA /* PRsViewStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461C53882972790000A67FCA /* PRsViewStateTests.swift */; };
@@ -129,7 +128,6 @@
 		461C536B297278FF00A67FCA /* GithubPRs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubPRs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		461C536E297278FF00A67FCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		461C5372297278FF00A67FCA /* PullRequestsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsController.swift; sourceTree = "<group>"; };
-		461C5378297278FF00A67FCA /* GithubPRs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubPRs.xcdatamodel; sourceTree = "<group>"; };
 		461C537A2972790000A67FCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		461C537D2972790000A67FCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		461C537F2972790000A67FCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 				46DD5BCE297297360066140D /* Common */,
 				46DD5D022972DBF10066140D /* Depedencies */,
 				46DD5BC7297296D40066140D /* Modules */,
-				461C5377297278FF00A67FCA /* GithubPRs.xcdatamodeld */,
 			);
 			path = GithubPRs;
 			sourceTree = "<group>";
@@ -919,7 +916,6 @@
 				46DED692297318A900406D2B /* MessageView.swift in Sources */,
 				46DD5BEF2972B7950066140D /* User.swift in Sources */,
 				46DED6B429742DB600406D2B /* PRCommit.swift in Sources */,
-				461C5379297278FF00A67FCA /* GithubPRs.xcdatamodeld in Sources */,
 				46DED6AE29742D7B00406D2B /* PRCommitsView.swift in Sources */,
 				46DED68A297311C100406D2B /* PullRequestCell.swift in Sources */,
 				46DD5BBE297290E90066140D /* TabBarWireframe.swift in Sources */,
@@ -1243,19 +1239,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		461C5377297278FF00A67FCA /* GithubPRs.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				461C5378297278FF00A67FCA /* GithubPRs.xcdatamodel */,
-			);
-			currentVersion = 461C5378297278FF00A67FCA /* GithubPRs.xcdatamodel */;
-			path = GithubPRs.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 461C5363297278FF00A67FCA /* Project object */;
 }
