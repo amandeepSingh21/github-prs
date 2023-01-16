@@ -41,18 +41,19 @@ boilerplate code for testing.
 - Heavily using Container ViewController to prevent massive view controllers.
 - Container ViewControllers are used to render messages as well as the UISegmentedControl.
 - Navigation is scalable for multiple tabs and authenticaiton flow.
-- Using URLSession cache for caching due to time constraints. However if I had a choice I would go for core data due to structured data and relationship b/w repo/branch/PRs/commits/files etc
+- No caching due to time constraints. However if I had a choice I would go for core data due to structured data and relationship b/w   repo/branch/PRs/commits/files etc
 - You might see certain code duplication across commits/comments/PR module. This is intentional.
    We don't want to prematurely optimize. For e.g in the future comments feature can be extended to support replying to comments (chat)
 ![Coverage](docs/architecture.png)
 
 ## 9. Features 
  - Two main screens: PullRequestList and PullRequestDetail.
- - PullRequestList: I have provided 'open' and 'closed' filters
+ - PullRequestList: I have provided 'open' and 'closed' filters.
  - PullRequestDetail: Comments list and Commits list.
  - Clicking on PullRequestDetail opens Safari.
  - Image caching.
  - All screens are pagianted.
+ - Pull to refresh.
  - Extensible for API response caching since Interactor only exposes domain model and not codable.
  - Both API requests and image requests are cancellable.
  - Dark mode is supported.
